@@ -1,8 +1,6 @@
 package dao;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 
 @Getter
 public class DaoFactory {
@@ -13,7 +11,7 @@ public class DaoFactory {
 
     private static DaoFactory instance;
 
-    public DaoFactory() {
+    private DaoFactory() {
         authorDao = new AuthorDao();
         bookDao = new BookDao();
         bookInstanceDao = new BookInstanceDao();

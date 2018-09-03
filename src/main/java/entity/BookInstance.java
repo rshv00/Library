@@ -16,13 +16,13 @@ public class BookInstance {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "instance_id")
-    private Long id;
+    @Column(name = "id")
+    private long id;
 
     private Boolean available;
 
     @Column(name = "edition_year")
-    private Integer editionYear;
+    private int editionYear;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "book_id")

@@ -5,12 +5,15 @@ import lombok.NoArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class ElementDaoImpl<E> implements ElementDao<E> {
+public abstract class GenericDaoImpl<E> implements GenericDao<E> {
 
     private Class<E> elementClass;
 
@@ -24,8 +27,8 @@ public abstract class ElementDaoImpl<E> implements ElementDao<E> {
             transaction.commit();
         } finally {
             if ((session != null) && (session.isOpen())) {
-                    session.close();
-                }
+                session.close();
+            }
         }
 
     }
@@ -50,8 +53,13 @@ public abstract class ElementDaoImpl<E> implements ElementDao<E> {
     public E getElementById(Long elementId) {
         Session session = null;
         E element;
+        CriteriaQuery<E> cr;
         try {
             session = HibernateUtil.getInstance().openSession();
+            CriteriaBuilder cb = session.getCriteriaBuilder();
+            cr = cb.createQuery(elementClass);
+            Root<E> root = cr.from(elementClass);
+            cr = cr.select(root).where(cb.gt(root.get("id"), elementId));
             element = (E) session.get(elementClass, elementId);
         } finally {
             if ((session != null) && (session.isOpen())) {
@@ -62,20 +70,30 @@ public abstract class ElementDaoImpl<E> implements ElementDao<E> {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public List<E> getAllElements() {
         Session session = null;
-        List<E> elements;
+        CriteriaQuery<E> cr;
+
         try {
             session = HibernateUtil.getInstance().openSession();
-            CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
-            elements = (List<E>) criteriaBuilder.createQuery(elementClass).getOrderList();
+
+            CriteriaBuilder cb = session.getCriteriaBuilder();
+
+            cr = cb.createQuery(elementClass);
+
+            Root<E> root = cr.from(elementClass);
+            cr = cr.select(root);
+
         } finally {
             if ((session != null) && (session.isOpen())) {
                 session.close();
             }
 
         }
-        return elements;
+        Query query = session.createQuery(cr);
+
+        return query.getResultList();
     }
 
     @Override
@@ -92,4 +110,5 @@ public abstract class ElementDaoImpl<E> implements ElementDao<E> {
             }
         }
     }
+
 }

@@ -19,7 +19,7 @@ public class Record {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private Integer id;
+    private int id;
 
     @Column(name = "taken")
     private LocalDate taken;

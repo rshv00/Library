@@ -18,14 +18,14 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private Integer id;
+    private int id;
     private String name;
     private String phone;
     private LocalDate birth_date;
     private LocalDate registration_date;
+    @Enumerated
     private Role role;
     private String login;
     private String pass;
-    @OneToOne(mappedBy = "user")
-    Record record;
+
 }

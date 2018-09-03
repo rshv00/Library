@@ -2,7 +2,7 @@ package dao;
 
 import java.util.List;
 
-public interface ElementDao<E> {
+public interface GenericDao<E> {
 
     public void addElement(E element);
 

@@ -18,18 +18,14 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "book_id")
-    private Long id;
+    @Column(name = "id")
+    private long id;
 
     private String name;
 
     @ManyToMany(targetEntity = Author.class, fetch = FetchType.LAZY)
-    @JoinTable(name = "authors", joinColumns = {@JoinColumn(name = "book_id")},
-            inverseJoinColumns = {@JoinColumn(name = "author_id")})
+    @JoinTable(name = "authors", joinColumns = {@JoinColumn(name = "author_id")},
+            inverseJoinColumns = {@JoinColumn(name = "book_id")})
     private List<Author> authors;
-
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "book")
-    private List<BookInstance> bookInstances;
-
 
 }
