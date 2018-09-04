@@ -12,7 +12,7 @@ public class Record {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "record_id")
     private int id;
 
     @Column(name = "taken")

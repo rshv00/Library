@@ -11,7 +11,7 @@ public class BookInstance {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "instance_id")
     private long id;
 
     private Boolean available;

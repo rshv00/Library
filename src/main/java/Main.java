@@ -10,5 +10,4 @@ public class Main {
         System.out.println("list all books:" + bs.getBookById(1L));
         System.out.println("\n" + bs.listBooks());
     }
-
 }

@@ -10,17 +10,16 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "book_id")
     private long id;
     private String name;
-
-    @ManyToMany(targetEntity = Author.class)
-    @JoinTable(name = "authors", joinColumns = {@JoinColumn(name = "author_id")},
-            inverseJoinColumns = {@JoinColumn(name = "book_id")})
+    @ManyToMany
+    @JoinTable(name = "author_book",joinColumns = {@JoinColumn(name = "book_id")},
+            inverseJoinColumns = {@JoinColumn(name = "author_id")})
     private Set<Author> authors;
     @OneToMany(mappedBy = "book")
     private Set<BookInstance> bookInstances;
-
+//
     public Set<BookInstance> getBookInstances() {
         return bookInstances;
     }

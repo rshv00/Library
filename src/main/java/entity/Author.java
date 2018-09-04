@@ -8,13 +8,13 @@ import java.util.Set;
 @Table(name = "authors")
 public class Author {
     @Id
-    @Column(name = "id")
+    @Column(name = "author_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Column(name = "name")
     private String name;
-    @ManyToMany(targetEntity = Book.class)
-    @JoinTable(name = "book", joinColumns = {@JoinColumn(name = "author_id")},
+    @ManyToMany
+    @JoinTable(name = "author_book",joinColumns = {@JoinColumn(name = "author_id")},
             inverseJoinColumns = {@JoinColumn(name = "book_id")})
     private Set<Book> books;
 
