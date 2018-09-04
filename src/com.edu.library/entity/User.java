@@ -1,12 +1,12 @@
-package entity;
+package com.edu.library.entity;
 
-import lombok.Data;
+import com.edu.library.entity.Record;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Set;
 
-@Data
 @Entity
 @Table(name = "users")
 public class User {

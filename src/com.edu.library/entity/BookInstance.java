@@ -1,10 +1,9 @@
-package entity;
+package com.edu.library.entity;
 
-import lombok.Data;
+import com.edu.library.entity.Book;
 
 import javax.persistence.*;
 
-@Data
 @Entity
 @Table
 public class BookInstance {

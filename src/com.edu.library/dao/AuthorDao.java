@@ -1,6 +1,7 @@
-package dao;
+package com.edu.library.dao;
 
-import entity.Author;
+
+import com.edu.library.entity.Author;
 
 public class AuthorDao extends GenericDaoImpl<Author> {
 

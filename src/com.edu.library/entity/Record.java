@@ -1,11 +1,10 @@
-package entity;
+package com.edu.library.entity;
 
-import lombok.Data;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Data
 @Entity
 @Table(name = "records")
 public class Record {

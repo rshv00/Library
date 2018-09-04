@@ -1,9 +1,12 @@
-package entity;
+package com.edu.library.entity;
+
+import com.edu.library.entity.Author;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.Set;
 
-
+@Component
 @Entity
 @Table(name = "books")
 public class Book {
@@ -13,18 +16,22 @@ public class Book {
     @Column(name = "book_id")
     private long id;
     private String name;
-    @ManyToMany
-    @JoinTable(name = "author_book",joinColumns = {@JoinColumn(name = "book_id")},
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "author_book", joinColumns = {@JoinColumn(name = "book_id")},
             inverseJoinColumns = {@JoinColumn(name = "author_id")})
     private Set<Author> authors;
-    @OneToMany(mappedBy = "book")
+    @OneToMany(mappedBy = "book",fetch = FetchType.EAGER)
     private Set<BookInstance> bookInstances;
-//
+
+    public Book() {
+    }
+
     public Set<BookInstance> getBookInstances() {
         return bookInstances;
     }
 
-    public Book() {
+    public void setBookInstances(Set<BookInstance> bookInstances) {
+        this.bookInstances = bookInstances;
     }
 
     public long getId() {
@@ -51,7 +58,5 @@ public class Book {
         this.authors = authors;
     }
 
-    public void setBookInstances(Set<BookInstance> bookInstances) {
-        this.bookInstances = bookInstances;
-    }
+
 }

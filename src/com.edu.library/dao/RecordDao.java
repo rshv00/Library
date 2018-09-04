@@ -1,6 +1,7 @@
-package dao;
+package com.edu.library.dao;
 
-import entity.Record;
+
+import com.edu.library.entity.Record;
 
 public class RecordDao extends GenericDaoImpl<Record> {
 

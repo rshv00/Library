@@ -1,9 +1,9 @@
-package entity;
+package com.edu.library.entity;
 
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.Set;
-
 @Entity
 @Table(name = "authors")
 public class Author {
@@ -14,7 +14,7 @@ public class Author {
     @Column(name = "name")
     private String name;
     @ManyToMany
-    @JoinTable(name = "author_book",joinColumns = {@JoinColumn(name = "author_id")},
+    @JoinTable(name = "author_book", joinColumns = {@JoinColumn(name = "author_id")},
             inverseJoinColumns = {@JoinColumn(name = "book_id")})
     private Set<Book> books;
 
