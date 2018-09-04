@@ -5,7 +5,10 @@ public class Main {
 
     public static void main(final String[] args) {
         BookService bs = new BookService();
-        bs.addBook(new Book());
+        Book book = new Book();
+        bs.addBook(book);
+        System.out.println("list all books:" + bs.getBookById(1L));
+        System.out.println("\n" + bs.listBooks());
     }
 
 }

@@ -1,19 +1,19 @@
 package dao;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import java.util.List;
 
-@NoArgsConstructor
-@AllArgsConstructor
+
 public abstract class GenericDaoImpl<E> implements GenericDao<E> {
+
+    public GenericDaoImpl() {
+    }
+
+    public GenericDaoImpl(Class<E> elementClass) {
+        this.elementClass = elementClass;
+    }
 
     private Class<E> elementClass;
 
@@ -53,13 +53,8 @@ public abstract class GenericDaoImpl<E> implements GenericDao<E> {
     public E getElementById(Long elementId) {
         Session session = null;
         E element;
-        CriteriaQuery<E> cr;
         try {
             session = HibernateUtil.getInstance().openSession();
-            CriteriaBuilder cb = session.getCriteriaBuilder();
-            cr = cb.createQuery(elementClass);
-            Root<E> root = cr.from(elementClass);
-            cr = cr.select(root).where(cb.gt(root.get("id"), elementId));
             element = (E) session.get(elementClass, elementId);
         } finally {
             if ((session != null) && (session.isOpen())) {
@@ -69,21 +64,18 @@ public abstract class GenericDaoImpl<E> implements GenericDao<E> {
         return element;
     }
 
+
     @Override
     @SuppressWarnings("unchecked")
     public List<E> getAllElements() {
         Session session = null;
-        CriteriaQuery<E> cr;
+        List<E> elements;
 
         try {
             session = HibernateUtil.getInstance().openSession();
 
-            CriteriaBuilder cb = session.getCriteriaBuilder();
+            elements = session.createQuery("from " + elementClass.getName()).list();
 
-            cr = cb.createQuery(elementClass);
-
-            Root<E> root = cr.from(elementClass);
-            cr = cr.select(root);
 
         } finally {
             if ((session != null) && (session.isOpen())) {
@@ -91,9 +83,8 @@ public abstract class GenericDaoImpl<E> implements GenericDao<E> {
             }
 
         }
-        Query query = session.createQuery(cr);
 
-        return query.getResultList();
+        return elements;
     }
 
     @Override
