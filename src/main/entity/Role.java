@@ -1,4 +1,4 @@
-package com.edu.library.entity;
+package main.entity;
 
 public enum Role {
     ROLE_ADMIN,

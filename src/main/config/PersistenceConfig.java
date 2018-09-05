@@ -1,10 +1,10 @@
-package com.edu.library.config;
+package main.config;
 
-import org.apache.commons.dbcp2.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -16,10 +16,10 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @PropertySources({
-        @PropertySource("com.edu.library/config/jdbc.properties"),
-        @PropertySource("com.edu.library/config/hibernate.properties")
+        @PropertySource("config/jdbc.properties"),
+        @PropertySource("config/hibernate.properties")
 })
-@ComponentScan("com")
+@ComponentScan("main")
 public class PersistenceConfig {
 
     @Autowired
@@ -27,7 +27,7 @@ public class PersistenceConfig {
 
     @Bean
     public DataSource dataSource() {
-        BasicDataSource ds = new BasicDataSource();
+        DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName(env.getProperty("jdbc.driverClassName"));
         ds.setUrl(env.getProperty("jdbc.url"));
         ds.setUsername(env.getProperty("jdbc.username"));
@@ -53,7 +53,7 @@ public class PersistenceConfig {
     public LocalSessionFactoryBean sessionFactory(DataSource ds) {
         LocalSessionFactoryBean sf = new LocalSessionFactoryBean();
         sf.setDataSource(ds);
-        sf.setPackagesToScan("com.edu.library");
+        sf.setPackagesToScan("main");
         sf.setHibernateProperties(getHibernateProperties());
         return sf;
     }

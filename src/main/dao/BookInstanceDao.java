@@ -1,7 +1,7 @@
-package com.edu.library.dao;
+package main.dao;
 
 
-import com.edu.library.entity.BookInstance;
+import main.entity.BookInstance;
 
 public class BookInstanceDao extends GenericDaoImpl<BookInstance> {
 

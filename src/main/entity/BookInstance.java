@@ -1,6 +1,4 @@
-package com.edu.library.entity;
-
-import com.edu.library.entity.Book;
+package main.entity;
 
 import javax.persistence.*;
 

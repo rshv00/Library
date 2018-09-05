@@ -1,7 +1,7 @@
-package com.edu.library.dao;
+package main.dao;
 
 
-import com.edu.library.entity.User;
+import main.entity.User;
 
 public class UserDao extends GenericDaoImpl<User> {
 

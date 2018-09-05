@@ -1,6 +1,4 @@
-package com.edu.library.entity;
-
-import org.springframework.stereotype.Component;
+package main.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;

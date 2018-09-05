@@ -1,21 +1,20 @@
-package com.edu.library.service;
+package main.service;
 
-import com.edu.library.dao.BookDao;
-import com.edu.library.entity.Book;
+import main.dao.BookDao;
+import main.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Scope("Prototype")
 public class BookService {
 
     @Autowired
-    BookService bookService;
-
     private BookDao bookDAO;
 
-    @Autowired
     public BookService(BookDao bookDAO) {
         this.bookDAO = bookDAO;
     }

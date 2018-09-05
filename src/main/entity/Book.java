@@ -1,6 +1,5 @@
-package com.edu.library.entity;
+package main.entity;
 
-import com.edu.library.entity.Author;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
