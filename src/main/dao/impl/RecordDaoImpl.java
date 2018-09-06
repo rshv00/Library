@@ -15,11 +15,11 @@ public class RecordDaoImpl extends GenericDaoImpl<Record, Long>
 
     @Override
     public List<Record> getActiveRecords(Long userId) {
-        return null;
+        return ;
     }
 
     @Override
     public List<Record> getHistoryOfRecords(Long userId) {
-        return null;
+        return ;
     }
 }
