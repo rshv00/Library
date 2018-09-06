@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import java.util.Set;
 
-@Component
 @Entity
 @Table(name = "books")
 public class Book {

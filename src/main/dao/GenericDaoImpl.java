@@ -7,12 +7,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
 @Repository
 public abstract class GenericDaoImpl<E> implements GenericDao<E> {
 
     @Autowired
     private SessionFactory sessionFactory;
-
+    @Autowired
     private Class<E> elementClass;
 
     GenericDaoImpl(Class<E> elementClass) {

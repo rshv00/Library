@@ -2,11 +2,13 @@ package main.dao;
 
 
 import main.entity.BookInstance;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class BookInstanceDao extends GenericDaoImpl<BookInstance> {
 
-    public BookInstanceDao(Class<BookInstance> elementClass) {
-        super(elementClass);
+    public BookInstanceDao() {
+        super(BookInstance.class);
     }
 
 }

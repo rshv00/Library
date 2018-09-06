@@ -49,7 +49,7 @@ public class PersistenceConfig {
         return new HibernateTransactionManager(sf);
     }
 
-    @Bean(name = "sessionFactory")
+    @Bean
     public LocalSessionFactoryBean sessionFactory(DataSource ds) {
         LocalSessionFactoryBean sf = new LocalSessionFactoryBean();
         sf.setDataSource(ds);
@@ -57,6 +57,5 @@ public class PersistenceConfig {
         sf.setHibernateProperties(getHibernateProperties());
         return sf;
     }
-
 
 }

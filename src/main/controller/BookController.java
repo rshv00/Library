@@ -1,7 +1,7 @@
 package main.controller;
 
 import main.entity.Book;
-import main.service.BookService;
+import main.service.BookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -14,13 +14,13 @@ public class BookController {
 
     @Autowired
     ApplicationContext context;
+    @Autowired
+    BookServiceImpl bs;
 
-    BookService bs;
 
     @GetMapping("/add")
     public void createBook() {
-        bs = context.getBean(BookService.class);
-        Book book = context.getBean(Book.class);
+        Book book = new Book();
         book.setId(12L);
         bs.addBook(book);
         System.out.println("createBook function");
