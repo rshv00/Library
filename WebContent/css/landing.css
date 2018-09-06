@@ -1,0 +1,12 @@
+.main p {
+    margin-top: 200px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;   
+}
+.main a {
+    color: black;
+}
+.main a:hover{
+    color: #333;
+}

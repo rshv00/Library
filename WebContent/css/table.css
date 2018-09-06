@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+}
+.main{
+    margin: 0 60px;
+}
+
+.lable_stats, select {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+}
+#dropdown {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.stats {
+    margin-top: 20px;
+    border-left-style: hidden;
+    border-right-style: hidden;
+}
+.main .title{
+    margin-top: 40px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;   
+}
+.t2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px; 
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.t3 {
+    margin-top: 35px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+}
+.users_table {
+    margin: 0px;
+    padding: 0px;
+}
+#debtors {
+    padding-top: 30px;
+
+}
+#by_inst{
+    padding-bottom: 10px;
+}
+
+#myInput {
+    background-image: url('../img/icons/searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+#myTable {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 18px;
+}
+
+#myTable th, #myTable td {
+    text-align: left;
+    padding: 12px;
+}
+
+#myTable tr {
+    border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+#myInput2{
+    border-radius: 10px;
+}
+
+table td,th,tr {
+    font-weight: normal;
+}
+#tip {
+    margin-top: 60px;
+    font-size: 19px;
+}
+th {
+    font-weight: bold;
+}
+.u_stats tr{
+    align-content: center;
+}
+table a{
+    color: #808080;
+}
+table a:hover {
+    color: black;
+}

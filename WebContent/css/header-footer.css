@@ -1,0 +1,110 @@
+container_24{
+}
+
+#logo {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    text-transform:  uppercase;
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: 400;
+    position: relative;
+
+}
+
+header h1 {
+    float: left;
+    margin: 0 0 0 50px;
+}
+
+nav li {
+    font-family: 'Montserrat', sans-serif;
+    display: inline;
+    text-transform: lowercase;
+}
+nav li:last-child{
+    padding: 0;
+}
+nav ul {
+    float: right;
+    margin-bottom: 0px;
+
+}
+nav{
+    float: right;
+    padding-right: 60px;
+    padding-top: 19px;
+    margin: 0px;
+
+}
+
+header {
+    overflow: hidden;
+    background-color: #333;
+}
+header h1 {
+    color: white;    
+    padding-left: 60px;
+
+}
+html,body {
+    height: 100%;
+}
+footer p{
+    color: white;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.container_24 {
+    flex: 1 0 auto;
+}
+footer{ 
+    margin-top: 80px;
+    background-color: #333;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: normal 16px 'Montserrat';
+    padding: 4px 60px;
+    flex: 0 0 auto;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+
+}
+
+a:hover, .selected {
+    color: #e7e7e7;
+}
+
+.t2 a{
+    color: black;
+} 
+.t2 a:hover {
+    color: #333;
+}
+
+/* Page content */
+.content {
+    padding: 16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+    padding-top: 102px;
+}
+

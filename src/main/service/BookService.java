@@ -3,37 +3,22 @@ package main.service;
 import main.dao.BookDao;
 import main.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@Scope("Prototype")
-public class BookService {
+@Scope("prototype")
+public interface BookService {
 
-    @Autowired
-    private BookDao bookDAO;
+    public void addBook(Book book);
 
-    public BookService(BookDao bookDAO) {
-        this.bookDAO = bookDAO;
-    }
+    public void deleteBook(Book book);
 
-    public void addBook(Book book) {
-        bookDAO.addElement(book);
-    }
+    public List<Book> listBooks();
 
-    public void deleteBook(Book book) {
-        bookDAO.deleteElement(book);
-    }
-
-    public List<Book> listBooks() {
-        return bookDAO.getAllElements();
-    }
-
-    public Book getBookById(Long id) {
-        return bookDAO.getElementById(id);
-    }
-
-
+    public Book getBookById(Long id);
 }

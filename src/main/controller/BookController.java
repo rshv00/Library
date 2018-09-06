@@ -23,5 +23,6 @@ public class BookController {
         Book book = context.getBean(Book.class);
         book.setId(12L);
         bs.addBook(book);
+        System.out.println("createBook function");
     }
 }

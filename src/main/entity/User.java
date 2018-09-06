@@ -18,7 +18,7 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Set<Record> records;
     @Enumerated
-    private Role role;
+    private ROLE role;
     private String login;
     private String pass;
 
@@ -71,5 +71,13 @@ public class User {
 
     public void setRecords(Set<Record> records) {
         this.records = records;
+    }
+
+    public ROLE getRole() {
+        return role;
+    }
+
+    public enum ROLE{
+        user, admin, unknown
     }
 }
