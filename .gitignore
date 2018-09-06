@@ -40,3 +40,4 @@ test-output
 atlassian-ide-plugin.xml
 .gradletasknamecache
 *.jar
+WebContent/config/jdbc.properties
