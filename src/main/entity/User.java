@@ -73,11 +73,27 @@ public class User {
         this.records = records;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
     public ROLE getRole() {
         return role;
     }
 
-    public enum ROLE{
+    public enum ROLE {
         user, admin, unknown
     }
 }

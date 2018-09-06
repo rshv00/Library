@@ -2,13 +2,13 @@ package main.entity;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "book_instances")
 @Table
 public class BookInstance {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "instance_id")
+    @Column(name = "id")
     private long id;
 
     private Boolean available;

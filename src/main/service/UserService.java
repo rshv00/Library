@@ -1,6 +1,5 @@
 package main.service;
 
-import main.entity.Author;
 import main.entity.User;
 
 import java.util.List;

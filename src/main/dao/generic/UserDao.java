@@ -1,9 +1,10 @@
 package main.dao.generic;
 
 import main.entity.User;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public interface UserDao extends GenericDao<User, Long> {
 
     /*
