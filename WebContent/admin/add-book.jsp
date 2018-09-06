@@ -25,7 +25,7 @@
         <link rel="stylesheet" href="../css/form.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
 
-        <script type="text/javascript" src="/main/webapp/js/scroll.js"></script>
+        <script type="text/javascript" src="/js/scroll.js"></script>
 
     </head>
     <body>
@@ -35,7 +35,7 @@
                 <nav class="grid_17">
                     <ul>
                         <li><a href="/records">Records</a></li>
-                        <li><a href="/main/webapp/admin/add-book.jsp">Add book</a></li>
+                        <li><a href="/admin/add-book.jsp">Add book</a></li>
                         <li><a href="/users-list">Users</a></li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
