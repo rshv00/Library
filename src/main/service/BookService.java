@@ -1,11 +1,9 @@
 package main.service;
 
 import main.entity.Book;
-import org.springframework.context.annotation.Scope;
 
 import java.util.List;
 
-@Scope("prototype")
 public interface BookService {
 
     public void addBook(Book book);
@@ -15,4 +13,6 @@ public interface BookService {
     public List<Book> listBooks();
 
     public Book getBookById(Long id);
+
+    public void updateBook(Book book);
 }

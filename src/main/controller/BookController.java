@@ -1,7 +1,7 @@
 package main.controller;
 
 import main.entity.Book;
-import main.service.BookServiceImpl;
+import main.service.impl.BookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
