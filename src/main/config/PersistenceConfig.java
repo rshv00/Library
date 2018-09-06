@@ -16,8 +16,8 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @PropertySources({
-        @PropertySource("config/jdbc.properties"),
-        @PropertySource("config/hibernate.properties")
+        @PropertySource("classpath:main/webapp/config/jdbc.properties"),
+        @PropertySource("classpath:main/webapp/config/hibernate.properties")
 })
 @ComponentScan("main")
 public class PersistenceConfig {

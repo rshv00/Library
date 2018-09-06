@@ -5,11 +5,11 @@
         <meta charset="UTF-8">
         <title>top project</title>
         <style>
-            <%@include file="/css/reset.css"%>
-            <%@include file="/css/text.css"%>
-            <%@include file="/css/960_24_col.css"%>
-            <%@include file="/css/header-footer.css"%>
-            <%@include file="/css/landing.css"%>
+            <%@include file="/main/webapp/css/reset.css"%>
+            <%@include file="/main/webapp/css/text.css"%>
+            <%@include file="/main/webapp/css/960_24_col.css"%>
+            <%@include file="/main/webapp/css/header-footer.css"%>
+            <%@include file="/main/webapp/css/landing.css"%>
         </style>
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/text.css">
@@ -25,7 +25,7 @@
             </header>
             <div class="main">
                 <p id="landing">by IT Academy team</p>
-                <p><a href="/entry/sign-in.jsp">Sign in</a></p>
+                <p><a href="/main/webapp/entry/sign-in.jsp">Sign in</a></p>
             
             </div>
             <footer style="margin-top: 300px;">

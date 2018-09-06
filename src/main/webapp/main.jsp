@@ -51,7 +51,7 @@
         <nav class="grid_17">
             <ul>
                 <li><a href="/records">Records</a></li>
-                <li><a href="/admin/add-book.jsp">Add book</a></li>
+                <li><a href="/main/webapp/admin/add-book.jsp">Add book</a></li>
                 <li><a href="/users-list">Users</a></li>
                 <li><a href="/logout">Logout</a></li>
             </ul>
@@ -79,7 +79,7 @@
                     <td><c:out value="${book.coauthorName}"/></td>
                     <td><c:out value="${book.editionYear}"/></td>
                     <td>
-                        <a href="${pageContext.request.contextPath}/main.jsp?reserve=<c:out value='${book.id}'/>">Reserve</a>
+                        <a href="${pageContext.request.contextPath}/main/webapp/main.jsp?reserve=<c:out value='${book.id}'/>">Reserve</a>
                     </td>
                 </tr>
             </c:forEach>

@@ -21,7 +21,6 @@ public class BookController {
     @GetMapping("/add")
     public void createBook() {
         Book book = new Book();
-        book.setId(12L);
         bs.addBook(book);
         System.out.println("createBook function");
     }

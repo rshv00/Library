@@ -13,8 +13,10 @@ public abstract class GenericDaoImpl<E> implements GenericDao<E> {
 
     @Autowired
     private SessionFactory sessionFactory;
-    @Autowired
+
     private Class<E> elementClass;
+
+    GenericDaoImpl() {}
 
     GenericDaoImpl(Class<E> elementClass) {
         this.elementClass = elementClass;
