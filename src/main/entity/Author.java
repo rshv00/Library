@@ -11,7 +11,7 @@ public class Author {
     private long id;
     @Column(name = "name")
     private String name;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "author_book", joinColumns = {@JoinColumn(name = "author_id")},
             inverseJoinColumns = {@JoinColumn(name = "book_id")})
     private Set<Book> books;

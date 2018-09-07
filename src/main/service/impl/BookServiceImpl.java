@@ -16,7 +16,9 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void addBook(Book book) {
-        dao.addElement(book);
+        if(!dao.checkBookExists(book.getName())){
+            dao.addElement(book);
+        }
     }
 
     @Override
@@ -68,11 +70,6 @@ public class BookServiceImpl implements BookService {
     @Override
     public int avgReadTime(String bookName) {
         return dao.avgReadTime(bookName);
-    }
-
-    @Override
-    public boolean checkBookExist(String bookName) {
-        return dao.checkBookExists(bookName);
     }
 
 }

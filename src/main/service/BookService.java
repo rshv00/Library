@@ -29,5 +29,4 @@ public interface BookService {
 
     public int avgReadTime(String bookName);
 
-    public boolean checkBookExist(String bookName);
 }

@@ -16,6 +16,7 @@ public class BookInstanceServiceImpl implements BookInstanceService {
 
     @Override
     public void addBookInstance(BookInstance instance) {
+        instance.setAvailable(true);
         dao.addElement(instance);
     }
 

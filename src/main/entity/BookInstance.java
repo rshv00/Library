@@ -2,9 +2,9 @@ package main.entity;
 
 import javax.persistence.*;
 
-@Entity(name = "book_instances")
-@Table
-public class BookInstance {
+@Entity
+@Table(name = "book_instances")
+public class BookInstance{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,7 +16,7 @@ public class BookInstance {
     @Column(name = "edition_year")
     private int editionYear;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id")
     private Book book;
 
