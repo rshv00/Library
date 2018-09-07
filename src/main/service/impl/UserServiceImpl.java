@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -38,5 +39,15 @@ public class UserServiceImpl implements UserService {
         dao.updateElement(user);
     }
 
-    
+    @Override
+    public int usingDays(int userId) {
+        return dao.usingDays(userId);
+    }
+
+    @Override
+    public User getUserByCredentials(String login, String pass) {
+        return dao.getUserByCredentials(login, pass);
+    }
+
+
 }

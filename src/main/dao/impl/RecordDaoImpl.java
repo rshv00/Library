@@ -18,6 +18,7 @@ public class RecordDaoImpl extends GenericDaoImpl<Record, Long>
 
     @Override
     public List<Record> getActiveRecords(Long userId) {
+        
         return null;
     }
 

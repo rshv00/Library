@@ -36,4 +36,11 @@ public class AuthorServiceImpl implements AuthorService {
     public void updateAuthor(Author author) {
         dao.updateElement(author);
     }
+
+    @Override
+    public int getAvgAgeOfUsers(String authorName) {
+        return dao.getAvgAgeOfUsers(authorName);
+    }
+
+
 }

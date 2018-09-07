@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class RecordServiceImpl implements RecordService {
+public abstract class RecordServiceImpl implements RecordService {
 
     @Autowired
     RecordDaoImpl dao;
@@ -35,5 +35,15 @@ public class RecordServiceImpl implements RecordService {
     @Override
     public void updateRecord(Record record) {
         dao.updateElement(record);
+    }
+
+    @Override
+    public List<Record> getActiveRecords(Long userId) {
+        return dao.getActiveRecords(userId);
+    }
+
+    @Override
+    public List<Record> getHistoryOfRecords(Long userId) {
+        return dao.getHistoryOfRecords(userId);
     }
 }
