@@ -20,7 +20,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public void deleteBook(Book book) {
+    public void deleteBook(Book book)
+    {
         dao.deleteElement(book);
     }
 
