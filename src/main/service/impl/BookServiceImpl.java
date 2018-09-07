@@ -60,7 +60,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public int avgAgeOfUsers(String bookName) {
+    public int avgAgeOfReaders(String bookName) {
         return dao.avgAgeOfUsers(bookName);
     }
 

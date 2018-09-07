@@ -1,16 +1,17 @@
 package main.service.impl;
 
-import main.dao.impl.RecordDaoImpl;
+import main.dao.impl.RecordDao;
 import main.entity.Record;
 import main.service.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class RecordServiceImpl implements RecordService {
 
     @Autowired
-    RecordDaoImpl dao;
+    RecordDao dao;
 
     @Override
     public void addRecord(Record record) {
@@ -39,11 +40,27 @@ public abstract class RecordServiceImpl implements RecordService {
 
     @Override
     public List<Record> getActiveRecords(Long userId) {
-        return dao.getActiveRecords(userId);
+        List<Record> allRecords = dao.getAllElements();
+        List<Record> activeRecords = new ArrayList<>();
+
+        for (Record record : allRecords) {
+            if (record.getReturned() == null) {
+                activeRecords.add(record);
+            }
+        }
+        return activeRecords;
     }
 
     @Override
     public List<Record> getHistoryOfRecords(Long userId) {
-        return dao.getHistoryOfRecords(userId);
+        List<Record> allRecords = dao.getAllElements();
+        List<Record> unactiveRecords = new ArrayList<>();
+
+        for (Record record : allRecords) {
+            if (record.getReturned() != null) {
+                unactiveRecords.add(record);
+            }
+        }
+        return unactiveRecords;
     }
 }

@@ -6,6 +6,7 @@ import main.service.BookInstanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 @Service
@@ -42,7 +43,29 @@ public class BookInstanceServiceImpl implements BookInstanceService {
 
     @Override
     public List<BookInstance> getInstances(String bookName) {
-        return dao.getInstances(bookName);
+        List<BookInstance> allInstances = dao.getAllElements();
+        List<BookInstance> sortedList = new ArrayList<>();
+
+        for (BookInstance instance : allInstances) {
+            if (instance.getBook().getName().equals(bookName)) {
+                sortedList.add(instance);
+            }
+        }
+        return sortedList;
+    }
+
+    @Override
+    public List<BookInstance> getInstances(String bookName, int editionYear) {
+        List<BookInstance> allInstances = dao.getAllElements();
+        List<BookInstance> sortedList = new ArrayList<>();
+
+        for (BookInstance instance : allInstances) {
+            if (instance.getBook().getName().equals(bookName) && instance.getEditionYear() == editionYear) {
+                sortedList.add(instance);
+            }
+        }
+        return sortedList;
+
     }
 
     @Override
@@ -57,7 +80,20 @@ public class BookInstanceServiceImpl implements BookInstanceService {
 
     @Override
     public List<BookInstance> getAvailableInstances() {
-        return dao.getAvailableInstances();
+        return null;
+    }
+
+    @Override
+    public boolean checkInstanceExist(String bookName, int editionYear) {
+        List<BookInstance> allInstances = dao.getAllElements();
+        List<BookInstance> sortedList = new ArrayList<>();
+
+        for (BookInstance instance : allInstances) {
+            if (instance.getBook().getName().equals(bookName) && instance.getEditionYear() == editionYear) {
+                sortedList.add(instance);
+            }
+        }
+        return !sortedList.isEmpty();
     }
 
     @Override

@@ -25,7 +25,7 @@ public interface BookService {
 
     public int bookTakenTimes(long id);
 
-    public int avgAgeOfUsers(String bookName);
+    public int avgAgeOfReaders(String bookName);
 
     public int avgReadTime(String bookName);
 }
