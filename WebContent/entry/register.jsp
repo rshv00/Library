@@ -50,7 +50,7 @@
                     </div>
 
 
-                    <form class="login100-form validate-form" action="register">
+                    <form class="login100-form validate-form" action="/register">
                         <div class="wrap-input100 validate-input m-b-26" data-validate="First and Last names are required">
                             <span class="label-input100"><b>Name</b></span>
                             <input class="input100" type="text" name="userName" placeholder="First and Last name">
