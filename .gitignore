@@ -34,8 +34,10 @@ spring-*/src/main/java/META-INF/MANIFEST.MF
 *.ipr
 *.iws
 .idea
+jdbc.properties
 out
 test-output
 atlassian-ide-plugin.xml
 .gradletasknamecache
 *.jar
+WebContent/config/jdbc.properties

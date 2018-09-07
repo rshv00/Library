@@ -1,15 +1,14 @@
-package main.dao;
-
-import org.springframework.stereotype.Repository;
+package main.dao.generic;
 
 import java.util.List;
-public interface GenericDao<E> {
+
+public interface GenericDao<E, ID> {
 
     void addElement(E element);
 
     void updateElement(E element);
 
-    E getElementById(Long elementId);
+    E getElementById(ID id);
 
     List<E> getAllElements();
 
