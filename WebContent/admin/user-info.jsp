@@ -33,7 +33,7 @@
                         <li><a href="records.jsp">Records</a></li>
                         <li><a href="add-book.jsp">Add book</a></li>
                         <li><a href="../admin/users-list">Users</a></li>
-                        <li><a href="../sign-in.jsp">Logout</a></li>
+                        <li><a href="../WEB-INF/login.jsp">Logout</a></li>
                     </ul>
                 </nav>
             </header>
