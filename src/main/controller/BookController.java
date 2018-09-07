@@ -5,6 +5,8 @@ import main.entity.Author;
 import main.entity.Book;
 import main.entity.BookInstance;
 import main.entity.User;
+import main.service.BookInstanceService;
+import main.service.impl.BookInstanceServiceImpl;
 import main.service.impl.BookServiceImpl;
 import main.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +30,7 @@ public class BookController {
     BookServiceImpl bs;
 
     @Autowired
-    UserServiceImpl userService;
+    BookInstanceServiceImpl bis;
 
     @Autowired
     UserDaoImpl userDao;
@@ -53,6 +55,8 @@ public class BookController {
         authors.add(author2);
         book.setAuthors(authors);
         bookInstance.setBook(book);
+        bis.addBookInstance(bookInstance);
+        bs.addBook(book);
         return "main";
     }
 }
