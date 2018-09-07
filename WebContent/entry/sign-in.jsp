@@ -47,7 +47,7 @@
                         </span>
                     </div>
 
-                    <form class="login100-form validate-form" action="main" method="get">
+                    <form class="login100-form validate-form" action="/login" method="get">
                         <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                             <span class="label-input100"><b>Username</b></span>
                             <input class="input100" type="text" name="login" placeholder="Enter username">

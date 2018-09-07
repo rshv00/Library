@@ -40,7 +40,7 @@
         </div>
         <div class="main">
             <p class="title">Edit instance #</p>
-            <form action="">
+            <form action="edit">
                 <fieldset>
                     <div class="group">
                         <label for="name">Book name</label>
