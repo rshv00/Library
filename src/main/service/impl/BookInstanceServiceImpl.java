@@ -4,11 +4,12 @@ import main.dao.impl.BookInstanceDaoImpl;
 import main.entity.BookInstance;
 import main.service.BookInstanceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 
-
+@Service
 public class BookInstanceServiceImpl implements BookInstanceService {
 
     @Autowired

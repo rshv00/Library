@@ -94,7 +94,7 @@
                             </div>
 
                             <div>
-                                <a href="sign-in.jsp" class="txt1">
+                                <a href="../sign-in.jsp" class="txt1">
                                     <b>Already have an account?</b>
                                 </a>
                             </div>

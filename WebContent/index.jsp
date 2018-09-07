@@ -25,7 +25,7 @@
             </header>
             <div class="main">
                 <p id="landing">by IT Academy team</p>
-                <p><a href="/entry/sign-in.jsp">Sign in</a></p>
+                <p><a href="/sign-in.jsp">Sign in</a></p>
             
             </div>
             <footer style="margin-top: 300px;">

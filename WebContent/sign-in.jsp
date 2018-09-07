@@ -7,34 +7,34 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
-            <%@include file='../vendor/bootstrap/css/bootstrap.min.css' %>
-            <%@include file='../vendor/animate/animate.css' %>
-            <%@include file='../vendor/css-hamburgers/hamburgers.min.css' %>
-            <%@include file='../vendor/animsition/css/animsition.min.css' %>
-            <%@include file='../vendor/select2/select2.min.css'%>
-            <%@include file='../vendor/daterangepicker/daterangepicker.css'%>
-            <%@include file='../css/entry_util.css'%>
-            <%@include file='../css/entry_main.css'%>
-            <%@include file='../img/icons/favicon.ico' %>
+            <%@include file='vendor/bootstrap/css/bootstrap.min.css' %>
+            <%@include file='vendor/animate/animate.css' %>
+            <%@include file='vendor/css-hamburgers/hamburgers.min.css' %>
+            <%@include file='vendor/animsition/css/animsition.min.css' %>
+            <%@include file='vendor/select2/select2.min.css'%>
+            <%@include file='vendor/daterangepicker/daterangepicker.css'%>
+            <%@include file='css/entry_util.css'%>
+            <%@include file='css/entry_main.css'%>
+            <%@include file='img/icons/favicon.ico' %>
         </style>
         <!--===============================================================================================-->
-        <link rel="icon" type="image/png" href="../img/icons/favicon.ico"/>
+        <link rel="icon" type="image/png" href="img/icons/favicon.ico"/>
         <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
         <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
+        <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
         <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
+        <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
         <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
+        <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
         <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
+        <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
         <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../vendor/daterangepicker/daterangepicker.css">
+        <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
         <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../css/entry_util.css">
+        <link rel="stylesheet" type="text/css" href="css/entry_util.css">
         <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../css/entry_main.css">
+        <link rel="stylesheet" type="text/css" href="css/entry_main.css">
         <!--===============================================================================================-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
     </head>
@@ -70,7 +70,7 @@
                             </div>
 
                             <div>
-                                <a href="register.jsp" class="txt1">
+                                <a href="entry/register.jsp" class="txt1">
                                     <b>New user?</b>
                                 </a>
                             </div>
@@ -87,21 +87,21 @@
         </div>
 
         <!--===============================================================================================-->
-        <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
+        <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
         <!--===============================================================================================-->
-        <script src="../vendor/animsition/js/animsition.min.js"></script>
+        <script src="vendor/animsition/js/animsition.min.js"></script>
         <!--===============================================================================================-->
-        <script src="../vendor/bootstrap/js/popper.js"></script>
-        <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="vendor/bootstrap/js/popper.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
         <!--===============================================================================================-->
-        <script src="../vendor/select2/select2.min.js"></script>
+        <script src="vendor/select2/select2.min.js"></script>
         <!--===============================================================================================-->
-        <script src="../vendor/daterangepicker/moment.min.js"></script>
-        <script src="../vendor/daterangepicker/daterangepicker.js"></script>
+        <script src="vendor/daterangepicker/moment.min.js"></script>
+        <script src="vendor/daterangepicker/daterangepicker.js"></script>
         <!--===============================================================================================-->
-        <script src="../vendor/countdowntime/countdowntime.js"></script>
+        <script src="vendor/countdowntime/countdowntime.js"></script>
         <!--===============================================================================================-->
-        <script src="../js/entry.js"></script>
+        <script src="js/entry.js"></script>
 
     </body>
 </html>

@@ -120,7 +120,7 @@
             <% } else {%>
             <div class="main">
                 <p id="landing" class="title2" >Welcome, guest</p>
-                <p class="title2"><a href="/entry/sign-in.jsp" class="title2">Sign in, pls</a></p>
+                <p class="title2"><a href="/sign-in.jsp" class="title2">Sign in, pls</a></p>
 
             </div>
             <% } %>

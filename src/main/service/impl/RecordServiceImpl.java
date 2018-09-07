@@ -5,9 +5,11 @@ import main.entity.Record;
 import main.entity.User;
 import main.service.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class RecordServiceImpl implements RecordService {
 
     @Autowired
