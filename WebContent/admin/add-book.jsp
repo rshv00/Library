@@ -47,7 +47,7 @@
                     <fieldset>
                         <div class="group">
                             <label for="name">Book name</label>
-                            <input type="text" id="name" name="title">
+                            <input type="text" id="name" name="name">
                         </div>
                         <div class="group">
                             <label for="author">Author</label>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="group">
                             <label for="edition_year">Edition year</label>
-                            <input type="number"id="edition_year" name="edition_year">
+                            <input type="number"id="edition_year" name="editionYear">
                         </div>
                         <div class="buttons">
                             <button type="submit" class="button" title="Send data">Add book</button>

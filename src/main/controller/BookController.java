@@ -5,6 +5,9 @@ import main.entity.Author;
 import main.entity.Book;
 import main.entity.BookInstance;
 import main.entity.User;
+import main.service.BookInstanceService;
+import main.service.impl.AuthorServiceImpl;
+import main.service.impl.BookInstanceServiceImpl;
 import main.service.impl.BookServiceImpl;
 import main.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,16 +22,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/admin")
 public class BookController {
 
     @Autowired
     ApplicationContext context;
     @Autowired
+    AuthorServiceImpl asi;
+    @Autowired
     BookServiceImpl bs;
 
     @Autowired
-    UserServiceImpl userService;
+    BookInstanceServiceImpl bis;
 
     @Autowired
     UserDaoImpl userDao;
@@ -40,7 +45,6 @@ public class BookController {
                            @RequestParam(name = "coauthor")String coauthor,
                            @RequestParam(name = "editionYear")int editionYear){
         BookInstance bookInstance = new BookInstance();
-        bookInstance.setAvailable(true);
         bookInstance.setEditionYear(editionYear);
         Book book = new Book();
         book.setName(name);
@@ -48,11 +52,11 @@ public class BookController {
         author1.setName(author);
         Author author2 = new Author();
         author2.setName(coauthor);
-        Set<Author> authors = new HashSet<>();
-        authors.add(author1);
-        authors.add(author2);
-        book.setAuthors(authors);
         bookInstance.setBook(book);
+        bis.addBookInstance(bookInstance);
+        bs.addBook(book);
+        asi.addAuthor(author1);
+        asi.addAuthor(author2);
         return "main";
     }
 }

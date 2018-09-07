@@ -5,6 +5,7 @@ import main.dao.impl.AuthorDaoImpl;
 import main.entity.Author;
 import main.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ public abstract class AuthorServiceImpl implements AuthorService, AuthorDao {
 
     @Override
     public void addAuthor(Author author) {
+        if(!dao.checkAuthorExist(author.getName()))
         dao.addElement(author);
     }
 
@@ -42,6 +44,5 @@ public abstract class AuthorServiceImpl implements AuthorService, AuthorDao {
     public int getAvgAgeOfReaders(long authorId) {
         return dao.getAvgAgeOfReaders(authorId);
     }
-
 
 }

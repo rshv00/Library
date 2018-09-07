@@ -24,7 +24,6 @@ public class Record {
     private User user;
 
     @OneToOne(optional = false, cascade = CascadeType.ALL)
-    @MapsId
     private BookInstance instance;
 
     public long getId() {

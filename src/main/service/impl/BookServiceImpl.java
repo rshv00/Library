@@ -17,11 +17,14 @@ public abstract class BookServiceImpl implements BookService, BookDao {
 
     @Override
     public void addBook(Book book) {
-        dao.addElement(book);
+        if(!dao.checkBookExists(book.getName())){
+            dao.addElement(book);
+        }
     }
 
     @Override
-    public void deleteBook(Book book) {
+    public void deleteBook(Book book)
+    {
         dao.deleteElement(book);
     }
 
