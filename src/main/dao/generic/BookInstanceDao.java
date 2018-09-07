@@ -24,4 +24,11 @@ public interface BookInstanceDao {
      * */
     int countInstancesAfter1991();
 
+    public List<BookInstance> getInstances(String bookName, int editionYear);
+
+    public boolean checkInstanceExist(String bookName, int editionYear);
+
+    public List<BookInstance> getInstances(String bookName);
+
+
 }

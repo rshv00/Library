@@ -7,4 +7,6 @@ public interface AuthorDao {
      * */
     int getAvgAgeOfUsers(String authorName);
 
+    boolean checkAuthorExist(String authorName);
+
 }

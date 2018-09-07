@@ -17,13 +17,13 @@ public class UserDaoImpl extends GenericDaoImpl<User, Long>
         super(User.class);
     }
 
+    @Deprecated
     @Override
     @SuppressWarnings("unchecked")
     public List<User> getDebtors() {
         Query query = sessionFactory
                 .getCurrentSession()
-                .createSQLQuery("select users.name, users.phone, users.birth_date, users.registration_date, " +
-                        "records.instance_id, books.name, records.taken from (((records inner join users on " +
+                .createSQLQuery("select users.name, users.phone, users.birth_date, users.registration_date from (((records inner join users on " +
                         "users.user_id = records.user_id) inner join book_instances on book_instances.id = " +
                         "records.instance_id)inner join books on books.book_id = book_instances.book_id) " +
                         " where returned is null and (datediff(CURDATE(), taken) > 30);");

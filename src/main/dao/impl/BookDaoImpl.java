@@ -48,4 +48,16 @@ public class BookDaoImpl extends GenericDaoImpl<Book, Long>
     public int avgReadTime(String bookName) {
         return 0;
     }
+
+    @Override
+    public boolean checkBookExists(String bookName) {
+        List<Book> allBooks = getAllElements();
+
+        for (Book book : allBooks) {
+            if (book.getName().equals(bookName)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

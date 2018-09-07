@@ -49,5 +49,10 @@ public class UserServiceImpl implements UserService {
         return dao.getUserByCredentials(login, pass);
     }
 
+    @Override
+    public List<User> getDebtors() {
+        return dao.getDebtors();
+    }
+
 
 }
