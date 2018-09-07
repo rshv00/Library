@@ -1,13 +1,15 @@
 package main.service.impl;
 
+import main.dao.generic.RecordDao;
 import main.dao.impl.RecordDaoImpl;
 import main.entity.Record;
+import main.entity.User;
 import main.service.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class RecordServiceImpl implements RecordService {
+public abstract class RecordServiceImpl implements RecordService, RecordDao {
 
     @Autowired
     RecordDaoImpl dao;
@@ -45,5 +47,10 @@ public class RecordServiceImpl implements RecordService {
     @Override
     public List<Record> getHistoryOfRecords(Long userId) {
         return dao.getHistoryOfRecords(userId);
+    }
+
+    @Override
+    public List<User> getDebtors(int periodDays) {
+        return dao.getDebtors(periodDays);
     }
 }

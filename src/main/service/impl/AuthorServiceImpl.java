@@ -1,5 +1,6 @@
 package main.service.impl;
 
+import main.dao.generic.AuthorDao;
 import main.dao.impl.AuthorDaoImpl;
 import main.entity.Author;
 import main.service.AuthorService;
@@ -7,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class AuthorServiceImpl implements AuthorService {
+public abstract class AuthorServiceImpl implements AuthorService, AuthorDao {
 
     @Autowired
     AuthorDaoImpl dao;
@@ -38,8 +39,8 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public int getAvgAgeOfReaders(String authorName) {
-        return dao.getAvgAgeOfUsers(authorName);
+    public int getAvgAgeOfReaders(long authorId) {
+        return dao.getAvgAgeOfReaders(authorId);
     }
 
 

@@ -16,6 +16,4 @@ public interface AuthorService {
 
     public void updateAuthor(Author author);
 
-    public int getAvgAgeOfReaders(String authorName);
-
 }

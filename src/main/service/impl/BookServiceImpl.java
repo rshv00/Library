@@ -1,6 +1,7 @@
 package main.service.impl;
 
 import main.dao.generic.BookDao;
+import main.dao.impl.BookDaoImpl;
 import main.entity.Book;
 import main.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +10,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class BookServiceImpl implements BookService {
+public abstract class BookServiceImpl implements BookService, BookDao {
 
     @Autowired
-    private BookDao dao;
+    private BookDaoImpl dao;
 
     @Override
     public void addBook(Book book) {
@@ -61,7 +62,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public int avgAgeOfReaders(String bookName) {
-        return dao.avgAgeOfUsers(bookName);
+        return dao.avgAgeOfReaders(bookName);
     }
 
     @Override
@@ -70,7 +71,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public boolean checkBookExist(String bookName) {
+    public boolean checkBookExists(String bookName) {
         return dao.checkBookExists(bookName);
     }
 

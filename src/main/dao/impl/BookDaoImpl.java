@@ -11,7 +11,7 @@ import java.util.List;
 @Transactional
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @Repository
-public class BookDaoImpl extends GenericDaoImpl<Book, Long>
+public class BookDaoImpl extends GenericDaoImpl<Book, Long, Integer>
         implements BookDao {
 
     public BookDaoImpl() {
@@ -40,7 +40,7 @@ public class BookDaoImpl extends GenericDaoImpl<Book, Long>
     }
 
     @Override
-    public int avgAgeOfUsers(String bookName) {
+    public int avgAgeOfReaders(String bookName) {
         return 0;
     }
 
@@ -60,4 +60,5 @@ public class BookDaoImpl extends GenericDaoImpl<Book, Long>
         }
         return false;
     }
+
 }

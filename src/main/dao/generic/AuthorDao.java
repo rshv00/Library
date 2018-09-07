@@ -1,11 +1,13 @@
 package main.dao.generic;
 
-public interface AuthorDao {
+import main.entity.Author;
+
+public interface AuthorDao extends GenericDao<Author, Long, Long>{
 
     /*
      * Avg age of users by author
      * */
-    int getAvgAgeOfUsers(String authorName);
+        public int getAvgAgeOfReaders(long authorId);
 
     boolean checkAuthorExist(String authorName);
 

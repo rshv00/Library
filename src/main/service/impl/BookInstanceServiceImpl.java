@@ -1,5 +1,6 @@
 package main.service.impl;
 
+import main.dao.generic.BookInstanceDao;
 import main.dao.impl.BookInstanceDaoImpl;
 import main.entity.BookInstance;
 import main.service.BookInstanceService;
@@ -8,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.HashMap;
 import java.util.List;
 
-public class BookInstanceServiceImpl implements BookInstanceService {
+public abstract class BookInstanceServiceImpl implements BookInstanceService, BookInstanceDao {
 
     @Autowired
     BookInstanceDaoImpl dao;

@@ -12,7 +12,7 @@ import java.util.List;
 
 @Transactional
 @Repository
-public class BookInstanceDaoImpl extends GenericDaoImpl<BookInstance, Long>
+public class BookInstanceDaoImpl extends GenericDaoImpl<BookInstance, Long, Integer>
         implements BookInstanceDao {
 
     public BookInstanceDaoImpl() {
@@ -28,6 +28,19 @@ public class BookInstanceDaoImpl extends GenericDaoImpl<BookInstance, Long>
     @Override
     public HashMap<Long, Integer> takenTimes(String bookName) {
         return null;
+    }
+
+    @Override
+    public List<BookInstance> getAvailableInstances() {
+        List<BookInstance> allInstances = getAllElements();
+        List<BookInstance> availableInstances = null;
+
+        for (BookInstance instance : allInstances) {
+            if (instance.getAvailable()){
+                allInstances.add(instance);
+            }
+        }
+        return availableInstances;
     }
 
 

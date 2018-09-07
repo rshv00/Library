@@ -10,7 +10,7 @@ import java.util.List;
 
 @Transactional
 @Repository
-public class AuthorDaoImpl extends GenericDaoImpl<Author, Long>
+public class AuthorDaoImpl extends GenericDaoImpl<Author, Long, Long>
         implements AuthorDao {
 
     public AuthorDaoImpl() {
@@ -18,7 +18,9 @@ public class AuthorDaoImpl extends GenericDaoImpl<Author, Long>
     }
 
     @Override
-    public int getAvgAgeOfUsers(String authorName) {
+    public int getAvgAgeOfReaders(long authorId) {
+        Author author = getAllElements("author_id", authorId).get(0);
+
         return 0;
     }
 
@@ -27,7 +29,7 @@ public class AuthorDaoImpl extends GenericDaoImpl<Author, Long>
         List<Author> allAuthors = getAllElements();
 
         for (Author author : allAuthors) {
-            if (author.getName().equals(authorName)){
+            if (author.getName().equals(authorName)) {
                 return true;
             }
         }

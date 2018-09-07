@@ -1,5 +1,6 @@
 package main.service.impl;
 
+import main.dao.generic.UserDao;
 import main.dao.impl.UserDaoImpl;
 import main.entity.User;
 import main.service.UserService;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService {
+public abstract class UserServiceImpl implements UserService, UserDao {
 
     @Autowired
     UserDaoImpl dao;
@@ -40,7 +41,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int usingDays(int userId) {
+    public long usingDays(long userId) {
         return dao.usingDays(userId);
     }
 
@@ -48,11 +49,5 @@ public class UserServiceImpl implements UserService {
     public User getUserByCredentials(String login, String pass) {
         return dao.getUserByCredentials(login, pass);
     }
-
-    @Override
-    public List<User> getDebtors() {
-        return dao.getDebtors();
-    }
-
 
 }

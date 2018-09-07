@@ -17,17 +17,4 @@ public interface BookService {
 
     public void updateBook(Book book);
 
-    public List<Book> getTopBooks();
-
-    public List<Book> getTopBooks(int days);
-
-    public List<Book> getFlopBooks();
-
-    public int bookTakenTimes(long id);
-
-    public int avgAgeOfReaders(String bookName);
-
-    public int avgReadTime(String bookName);
-
-    public boolean checkBookExist(String bookName);
 }
