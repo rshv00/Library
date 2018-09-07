@@ -4,22 +4,15 @@ import main.dao.impl.UserDaoImpl;
 import main.entity.Author;
 import main.entity.Book;
 import main.entity.BookInstance;
-import main.entity.User;
-import main.service.BookInstanceService;
+import main.service.BookService;
 import main.service.impl.AuthorServiceImpl;
 import main.service.impl.BookInstanceServiceImpl;
-import main.service.impl.BookServiceImpl;
-import main.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.HashSet;
-import java.util.Set;
 
 @Controller
 @RequestMapping("/admin")
@@ -30,7 +23,7 @@ public class BookController {
     @Autowired
     AuthorServiceImpl asi;
     @Autowired
-    BookServiceImpl bs;
+    BookService bs;
 
     @Autowired
     BookInstanceServiceImpl bis;

@@ -1,16 +1,13 @@
 package main.service.impl;
 
-import main.dao.generic.BookDao;
 import main.dao.impl.BookDaoImpl;
 import main.entity.Book;
 import main.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public abstract class BookServiceImpl implements BookService, BookDao {
+public class BookServiceImpl implements BookService {
 
     @Autowired
     private BookDaoImpl dao;

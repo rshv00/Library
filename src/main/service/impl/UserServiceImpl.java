@@ -1,6 +1,5 @@
 package main.service.impl;
 
-import main.dao.generic.UserDao;
 import main.dao.impl.UserDaoImpl;
 import main.entity.User;
 import main.service.UserService;
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public abstract class UserServiceImpl implements UserService, UserDao {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     UserDaoImpl dao;

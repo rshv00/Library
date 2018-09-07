@@ -1,6 +1,5 @@
 package main.service.impl;
 
-import main.dao.generic.RecordDao;
 import main.dao.impl.RecordDaoImpl;
 import main.entity.Record;
 import main.entity.User;
@@ -9,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public abstract class RecordServiceImpl implements RecordService, RecordDao {
+public class RecordServiceImpl implements RecordService {
 
     @Autowired
     RecordDaoImpl dao;
@@ -42,6 +41,11 @@ public abstract class RecordServiceImpl implements RecordService, RecordDao {
     @Override
     public List<Record> getActiveRecords(Long userId) {
         return dao.getActiveRecords(userId);
+    }
+
+    @Override
+    public List<Record> getActiveRecords() {
+        return dao.getActiveRecords();
     }
 
     @Override
