@@ -4,10 +4,11 @@ package main.dao.impl;
 import main.dao.generic.BookInstanceDao;
 import main.entity.BookInstance;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 import java.util.List;
-
+@Transactional
 @Repository
 public class BookInstanceDaoImpl extends GenericDaoImpl<BookInstance, Long>
         implements BookInstanceDao {
@@ -18,22 +19,22 @@ public class BookInstanceDaoImpl extends GenericDaoImpl<BookInstance, Long>
 
     @Override
     public List<BookInstance> getInstances(String bookName) {
-        return;
+        return null;
     }
 
     @Override
     public int takenTimes(int id) {
-        return;
+        return 0;
     }
 
     @Override
     public HashMap<Long, Integer> takenTimes(String bookName) {
-        return;
+        return null;
     }
 
     @Override
     public List<BookInstance> getAvailableInstances() {
-        return;
+        return null;
     }
 
     @Override
