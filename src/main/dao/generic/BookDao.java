@@ -36,4 +36,6 @@ public interface BookDao extends GenericDao<Book, Long> {
      * */
     int avgReadTime(String bookName);
 
+    boolean checkBookExists(String bookName);
+
 }

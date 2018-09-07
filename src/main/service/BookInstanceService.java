@@ -1,10 +1,12 @@
 package main.service;
 
 import main.entity.BookInstance;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
 
+@Repository
 public interface BookInstanceService {
 
     public void addBookInstance(BookInstance instance);
@@ -42,4 +44,5 @@ public interface BookInstanceService {
     public boolean checkInstanceExist(String bookName, int editionYear);
 
     public int countInstancesAfter1991();
+
 }

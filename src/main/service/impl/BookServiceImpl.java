@@ -70,4 +70,9 @@ public class BookServiceImpl implements BookService {
         return dao.avgReadTime(bookName);
     }
 
+    @Override
+    public boolean checkBookExist(String bookName) {
+        return dao.checkBookExists(bookName);
+    }
+
 }

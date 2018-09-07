@@ -6,7 +6,6 @@ import main.service.BookInstanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 @Service
@@ -42,29 +41,12 @@ public class BookInstanceServiceImpl implements BookInstanceService {
 
     @Override
     public List<BookInstance> getInstances(String bookName) {
-        List<BookInstance> allInstances = dao.getAllElements();
-        List<BookInstance> sortedList = new ArrayList<>();
-
-        for (BookInstance instance : allInstances) {
-            if (instance.getBook().getName().equals(bookName)) {
-                sortedList.add(instance);
-            }
-        }
-        return sortedList;
+        return dao.getInstances(bookName);
     }
 
     @Override
     public List<BookInstance> getInstances(String bookName, int editionYear) {
-        List<BookInstance> allInstances = dao.getAllElements();
-        List<BookInstance> sortedList = new ArrayList<>();
-
-        for (BookInstance instance : allInstances) {
-            if (instance.getBook().getName().equals(bookName) && instance.getEditionYear() == editionYear) {
-                sortedList.add(instance);
-            }
-        }
-        return sortedList;
-
+        return dao.getInstances(bookName, editionYear);
     }
 
     @Override
@@ -84,15 +66,7 @@ public class BookInstanceServiceImpl implements BookInstanceService {
 
     @Override
     public boolean checkInstanceExist(String bookName, int editionYear) {
-        List<BookInstance> allInstances = dao.getAllElements();
-        List<BookInstance> sortedList = new ArrayList<>();
-
-        for (BookInstance instance : allInstances) {
-            if (instance.getBook().getName().equals(bookName) && instance.getEditionYear() == editionYear) {
-                sortedList.add(instance);
-            }
-        }
-        return !sortedList.isEmpty();
+        return dao.checkInstanceExist(bookName, editionYear);
     }
 
     @Override

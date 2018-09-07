@@ -6,6 +6,7 @@ import main.entity.BookInstance;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -37,5 +38,46 @@ public class BookInstanceDaoImpl extends GenericDaoImpl<BookInstance, Long>
                 .getCurrentSession()
                 .createQuery("select id from book_instances as bi where bi.editionYear>1991").list();
         return list.size();
+    }
+
+    @Override
+    public List<BookInstance> getInstances(String bookName, int editionYear) {
+        List<BookInstance> allInstances = getAllElements();
+        List<BookInstance> sortedList = new ArrayList<>();
+
+        for (BookInstance instance : allInstances) {
+            if (instance.getBook().getName().equals(bookName) && instance.getEditionYear() == editionYear) {
+                sortedList.add(instance);
+            }
+        }
+        return sortedList;
+
+    }
+
+    @Override
+    public boolean checkInstanceExist(String bookName, int editionYear) {
+        List<BookInstance> allInstances = getAllElements();
+
+        for (BookInstance instance : allInstances) {
+            if (instance.getBook().getName().equals(bookName) && instance.getEditionYear() == editionYear) {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    @Override
+    public List<BookInstance> getInstances(String bookName) {
+        List<BookInstance> allInstances = getAllElements();
+        List<BookInstance> sortedList = new ArrayList<>();
+
+        for (BookInstance instance : allInstances) {
+            if (instance.getBook().getName().equals(bookName)) {
+                sortedList.add(instance);
+            }
+        }
+        return sortedList;
+
     }
 }
