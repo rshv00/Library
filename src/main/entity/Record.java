@@ -10,7 +10,7 @@ public class Record {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "record_id")
-    private int id;
+    private long id;
 
     @Column(name = "taken")
     private LocalDate taken;
@@ -24,10 +24,9 @@ public class Record {
     private User user;
 
     @OneToOne(optional = false, cascade = CascadeType.ALL)
-    @MapsId
     private BookInstance instance;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

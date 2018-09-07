@@ -1,10 +1,11 @@
 package main.service;
 
 import main.entity.Book;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Repository
+
+@Service
 public interface BookService {
 
     public void addBook(Book book);
@@ -17,15 +18,36 @@ public interface BookService {
 
     public void updateBook(Book book);
 
-    public List<Book> getTopBooks();
+    /*
+     * Most taken books
+     * */
+    List<Book> getTopBooks();
 
-    public List<Book> getTopBooks(int days);
+    /*
+     * Most taken books by period in days
+     * */
+    List<Book> getTopBooks(int days);
 
-    public List<Book> getFlopBooks();
+    /*
+     * Flop books, were taken as minimum once
+     * */
+    List<Book> getFlopBooks();
 
-    public int bookTakenTimes(long id);
+    /*
+     * Book taken times
+     * */
+    int bookTakenTimes(long id);
 
-    public int avgAgeOfUsers(String bookName);
+    /*
+     * Average age of readers by book name
+     **/
+    int avgAgeOfReaders(String bookName);
 
-    public int avgReadTime(String bookName);
+    /*
+     * Average reading time
+     * */
+    int avgReadTime(String bookName);
+
+    boolean checkBookExists(String bookName);
+
 }

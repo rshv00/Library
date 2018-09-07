@@ -5,22 +5,21 @@ import main.entity.BookInstance;
 import java.util.HashMap;
 import java.util.List;
 
-public interface BookInstanceDao {
+public interface BookInstanceDao extends GenericDao<BookInstance, Long, Integer> {
 
     /*
      * Get all instances by book name
      **/
-    List<BookInstance> getInstances(String bookName);
+    public List<BookInstance> getInstances(String bookName);
 
     /*
-     * Instance taken times
-     * */
-    int takenTimes(int id);
+     * Get all instances by book name and editionYear
+     **/
+    List<BookInstance> getInstances(String bookName, int editionYear);
 
-    /*
-     * Map[instanceId, takenTimes] by book name
-     * */
-    HashMap<Long, Integer> takenTimes(String bookName);
+    public int takenTimes(int id);
+
+    public HashMap<Long, Integer> takenTimes(String bookName);
 
     /*
      * All instances, where BookInstance.available=true
@@ -28,8 +27,10 @@ public interface BookInstanceDao {
     List<BookInstance> getAvailableInstances();
 
     /*
-     * Amount of instances in library were edited after 1991
+     * Returns true if as minimum one instance of book exist
      * */
-    int countInstancesAfter1991();
+    public boolean checkInstanceExist(String bookName, int editionYear);
+
+    public int countInstancesAfter1991();
 
 }

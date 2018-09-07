@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int usingDays(int userId) {
+    public long usingDays(long userId) {
         return dao.usingDays(userId);
     }
 
@@ -48,6 +48,5 @@ public class UserServiceImpl implements UserService {
     public User getUserByCredentials(String login, String pass) {
         return dao.getUserByCredentials(login, pass);
     }
-
 
 }

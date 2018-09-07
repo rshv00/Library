@@ -4,7 +4,7 @@ import main.entity.Book;
 
 import java.util.List;
 
-public interface BookDao extends GenericDao<Book, Long> {
+public interface BookDao extends GenericDao<Book, Long, Integer> {
 
     /*
      * Most taken books
@@ -29,11 +29,15 @@ public interface BookDao extends GenericDao<Book, Long> {
     /*
      * Average age of readers by book name
      **/
-    int avgAgeOfUsers(String bookName);
+    int avgAgeOfReaders(String bookName);
 
     /*
      * Average reading time
      * */
     int avgReadTime(String bookName);
+
+    boolean checkBookExists(String bookName);
+
+
 
 }

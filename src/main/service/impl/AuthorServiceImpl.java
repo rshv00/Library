@@ -7,13 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class AuthorServiceImpl implements AuthorService {
+public  class AuthorServiceImpl implements AuthorService {
 
     @Autowired
     AuthorDaoImpl dao;
 
     @Override
     public void addAuthor(Author author) {
+        if(!dao.checkAuthorExist(author.getName()))
         dao.addElement(author);
     }
 
@@ -38,9 +39,13 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public int getAvgAgeOfUsers(String authorName) {
-        return dao.getAvgAgeOfUsers(authorName);
+    public int getAvgAgeOfReaders(long authorId) {
+        return dao.getAvgAgeOfReaders(authorId);
     }
 
+    @Override
+    public boolean checkAuthorExist(String authorName) {
+        return dao.checkAuthorExist(authorName);
+    }
 
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.HashMap;
 import java.util.List;
 
+
 public class BookInstanceServiceImpl implements BookInstanceService {
 
     @Autowired
@@ -15,6 +16,7 @@ public class BookInstanceServiceImpl implements BookInstanceService {
 
     @Override
     public void addBookInstance(BookInstance instance) {
+        instance.setAvailable(true);
         dao.addElement(instance);
     }
 
@@ -44,6 +46,11 @@ public class BookInstanceServiceImpl implements BookInstanceService {
     }
 
     @Override
+    public List<BookInstance> getInstances(String bookName, int editionYear) {
+        return dao.getInstances(bookName, editionYear);
+    }
+
+    @Override
     public int takenTimes(int id) {
         return dao.takenTimes(id);
     }
@@ -55,7 +62,12 @@ public class BookInstanceServiceImpl implements BookInstanceService {
 
     @Override
     public List<BookInstance> getAvailableInstances() {
-        return dao.getAvailableInstances();
+        return null;
+    }
+
+    @Override
+    public boolean checkInstanceExist(String bookName, int editionYear) {
+        return dao.checkInstanceExist(bookName, editionYear);
     }
 
     @Override

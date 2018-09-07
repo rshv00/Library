@@ -1,10 +1,11 @@
 package main.service;
 
 import main.entity.User;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Repository
+
+@Service
 public interface UserService {
 
     public void addUser(User user);
@@ -17,7 +18,15 @@ public interface UserService {
 
     public void updateUser(User user);
 
-    public int usingDays(int userId);
+    /*
+     * Number of days after registration of user
+     * */
+    long usingDays(long userId);
 
-    public User getUserByCredentials(String login, String pass);
+    /*
+     * Get user by login and pass
+     * */
+    User getUserByCredentials(String login, String pass);
+
+
 }

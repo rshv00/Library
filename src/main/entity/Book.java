@@ -14,11 +14,11 @@ public class Book {
     @Column(name = "book_id")
     private long id;
     private String name;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name = "author_book", joinColumns = {@JoinColumn(name = "book_id")},
             inverseJoinColumns = {@JoinColumn(name = "author_id")})
     private Set<Author> authors;
-    @OneToMany(mappedBy = "book",fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "book",fetch = FetchType.EAGER)
     private Set<BookInstance> bookInstances;
 
     public Book() {

@@ -11,7 +11,7 @@ import java.util.List;
 @Transactional
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @Repository
-public class BookDaoImpl extends GenericDaoImpl<Book, Long>
+public class BookDaoImpl extends GenericDaoImpl<Book, Long, Integer>
         implements BookDao {
 
     public BookDaoImpl() {
@@ -40,7 +40,7 @@ public class BookDaoImpl extends GenericDaoImpl<Book, Long>
     }
 
     @Override
-    public int avgAgeOfUsers(String bookName) {
+    public int avgAgeOfReaders(String bookName) {
         return 0;
     }
 
@@ -48,4 +48,17 @@ public class BookDaoImpl extends GenericDaoImpl<Book, Long>
     public int avgReadTime(String bookName) {
         return 0;
     }
+
+    @Override
+    public boolean checkBookExists(String bookName) {
+        List<Book> allBooks = getAllElements();
+
+        for (Book book : allBooks) {
+            if (book.getName().equals(bookName)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
