@@ -18,10 +18,6 @@ public class BookInstanceDaoImpl extends GenericDaoImpl<BookInstance, Long>
         super(BookInstance.class);
     }
 
-    @Override
-    public List<BookInstance> getInstances(String bookName) {
-        return null;
-    }
 
     @Override
     public int takenTimes(int id) {
@@ -33,10 +29,6 @@ public class BookInstanceDaoImpl extends GenericDaoImpl<BookInstance, Long>
         return null;
     }
 
-    @Override
-    public List<BookInstance> getAvailableInstances() {
-        return null;
-    }
 
     @Override
     @SuppressWarnings("unchecked")

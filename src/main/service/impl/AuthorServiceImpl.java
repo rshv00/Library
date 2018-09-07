@@ -38,7 +38,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public int getAvgAgeOfUsers(String authorName) {
+    public int getAvgAgeOfReaders(String authorName) {
         return dao.getAvgAgeOfUsers(authorName);
     }
 
