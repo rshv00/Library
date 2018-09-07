@@ -39,4 +39,34 @@ public class BookServiceImpl implements BookService {
         dao.updateElement(book);
     }
 
+    @Override
+    public List<Book> getTopBooks() {
+        return dao.getTopBooks();
+    }
+
+    @Override
+    public List<Book> getTopBooks(int days) {
+        return dao.getTopBooks(days);
+    }
+
+    @Override
+    public List<Book> getFlopBooks() {
+        return dao.getFlopBooks();
+    }
+
+    @Override
+    public int bookTakenTimes(long id) {
+        return dao.bookTakenTimes(id);
+    }
+
+    @Override
+    public int avgAgeOfUsers(String bookName) {
+        return dao.avgAgeOfUsers(bookName);
+    }
+
+    @Override
+    public int avgReadTime(String bookName) {
+        return dao.avgReadTime(bookName);
+    }
+
 }

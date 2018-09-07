@@ -13,7 +13,7 @@ import java.util.List;
 public abstract class GenericDaoImpl<E, ID extends Serializable> implements GenericDao<E, ID> {
 
     @Autowired
-    public SessionFactory sessionFactory;
+    SessionFactory sessionFactory;
 
     private Class<E> elementClass;
 

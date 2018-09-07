@@ -29,7 +29,7 @@
 </head>
 <body>
 <div class="container_24">
-    <% if (session.getAttribute("role").equals(User.ROLE.user)) { %>
+    <% if ((!(session.getAttribute("role") ==null))&&session.getAttribute("role").equals(User.ROLE.user)) { %>
     <header class="header" id="myHeader">
         <h1 class="grid_7" id="logo"><a href="/main">library</a></h1>
         <nav class="grid_17">
@@ -45,7 +45,7 @@
             </ul>
         </nav>
     </header>
-    <% } else {%>
+    <% } else if ((!(session.getAttribute("role") ==null))&&session.getAttribute("role").equals(User.ROLE.admin)){%>
     <header class="header" id="myHeader">
         <h1 class="grid_7" id="logo"><a href="/main">l-admin</a></h1>
         <nav class="grid_17">
@@ -57,14 +57,23 @@
             </ul>
         </nav>
     </header>
+    <% } else{%>
+    <header class="header" id="myHeader">
+        <h1 class="grid_7" id="logo"><a href="/main">l-admin</a></h1>
+        <nav class="grid_17">
+            <ul>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
     <% } %>
 
     <div class="main">
+            <% if ((!(session.getAttribute("role") ==null))&&session.getAttribute("role").equals(User.ROLE.admin)) { %>
         <p class="title">Search available books</p>
         <input type="text" id="myInput" onkeyup="search()" placeholder="E.g Fairy Tales" onchange="showTable()"
                title="Type field">
         <table id="myTable">
-            <% if (session.getAttribute("role").equals(User.ROLE.user)) { %>
             <tr class="header">
                 <th>Book name</th>
                 <th>Author</th>
@@ -83,7 +92,11 @@
                     </td>
                 </tr>
             </c:forEach>
-            <% } else {%>
+            <% } if ((!(session.getAttribute("role") ==null))&&session.getAttribute("role").equals(User.ROLE.user)){%>
+            <p class="title">Search available books</p>
+            <input type="text" id="myInput" onkeyup="search()" placeholder="E.g Fairy Tales" onchange="showTable()"
+                   title="Type field">
+            <table id="myTable">
             <tr class="header">
                 <th>Book id</th>
                 <th>Book name</th>
@@ -104,6 +117,12 @@
                     </td>
                 </tr>
             </c:forEach>
+            <% } else {%>
+            <div class="main">
+                <p id="landing" class="title2" >Welcome, guest</p>
+                <p class="title2"><a href="/entry/sign-in.jsp" class="title2">Sign in, pls</a></p>
+
+            </div>
             <% } %>
         </table>
     </div>

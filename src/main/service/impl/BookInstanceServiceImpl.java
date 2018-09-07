@@ -5,6 +5,7 @@ import main.entity.BookInstance;
 import main.service.BookInstanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class BookInstanceServiceImpl implements BookInstanceService {
@@ -35,5 +36,30 @@ public class BookInstanceServiceImpl implements BookInstanceService {
     @Override
     public void updateBook(BookInstance instance) {
         dao.updateElement(instance);
+    }
+
+    @Override
+    public List<BookInstance> getInstances(String bookName) {
+        return dao.getInstances(bookName);
+    }
+
+    @Override
+    public int takenTimes(int id) {
+        return dao.takenTimes(id);
+    }
+
+    @Override
+    public HashMap<Long, Integer> takenTimes(String bookName) {
+        return dao.takenTimes(bookName);
+    }
+
+    @Override
+    public List<BookInstance> getAvailableInstances() {
+        return dao.getAvailableInstances();
+    }
+
+    @Override
+    public int countInstancesAfter1991() {
+        return dao.countInstancesAfter1991();
     }
 }

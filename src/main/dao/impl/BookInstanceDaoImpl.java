@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 import java.util.List;
+
 @Transactional
 @Repository
 public class BookInstanceDaoImpl extends GenericDaoImpl<BookInstance, Long>
@@ -42,7 +43,7 @@ public class BookInstanceDaoImpl extends GenericDaoImpl<BookInstance, Long>
     public int countInstancesAfter1991() {
         List<Long> list = sessionFactory
                 .getCurrentSession()
-                .createQuery("select id from BookInstance as bi where bi.editionYear>1991").list();
+                .createQuery("select id from book_instances as bi where bi.editionYear>1991").list();
         return list.size();
     }
 }
