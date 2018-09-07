@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
@@ -46,11 +47,11 @@
                             Sign In
                         </span>
                     </div>
-
+                    <c:url value="/j_spring_security_check" var="loginUrl" />
                     <form class="login100-form validate-form" action="/login" method="get">
                         <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                             <span class="label-input100"><b>Username</b></span>
-                            <input class="input100" type="text" name="login" placeholder="Enter username">
+                            <input class="input100" type="text" name="username" placeholder="Enter username">
                             <span class="focus-input100"></span>
                         </div>
 
