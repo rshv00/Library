@@ -1,14 +1,14 @@
-container_24{
+container_24 {
 }
 
 #logo {
     font-family: 'Montserrat', sans-serif;
     color: white;
-    text-transform:  uppercase;
+    text-transform: uppercase;
     text-decoration: none;
     font-size: 32px;
     font-weight: 400;
-    position: relative;
+    position: fixed;
 
 }
 
@@ -22,15 +22,18 @@ nav li {
     display: inline;
     text-transform: lowercase;
 }
-nav li:last-child{
+
+nav li:last-child {
     padding: 0;
 }
+
 nav ul {
     float: right;
     margin-bottom: 0px;
 
 }
-nav{
+
+nav {
     float: right;
     padding-right: 60px;
     padding-top: 19px;
@@ -43,18 +46,21 @@ header {
     background-color: #333;
     width: 100%;
     height: 50px;
-    position: absolute;
+    position: fixed;
     flex: 0 0 auto;
 }
+
 header h1 {
-    color: white;    
+    color: white;
     padding-left: 60px;
 
 }
-html,body {
+
+html, body {
     height: 100%;
 }
-footer p{
+
+footer p {
     color: white;
 }
 
@@ -63,26 +69,26 @@ body {
     flex-direction: column;
     height: 100%;
 }
+
 .container_24 {
     flex: 1 0 auto;
 }
-footer{ 
+
+footer {
     margin-top: 80px;
+    margin-bottom: 0;
     background-color: #333;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
     box-sizing: border-box;
     width: 100%;
     text-align: left;
+    flex-shrink: 0;
     font: normal 16px 'Montserrat';
     padding: 4px 60px;
-    flex: 0 0 auto;
-    position: absolute;
-    left: 0;
-    bottom: 0;
     height: 40px;
 }
 
-a{
+a {
     text-decoration: none;
     color: white;
 
@@ -98,9 +104,10 @@ a:hover, .selected {
     color: #e7e7e7;
 }
 
-.t2 a{
+.t2 a {
     color: black;
-} 
+}
+
 .t2 a:hover {
     color: #333;
 }

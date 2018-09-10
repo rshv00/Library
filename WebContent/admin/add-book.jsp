@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
@@ -11,21 +10,17 @@
             <%@include file="../js/searchTable.js"%>
             <%@include file="../js/showTable.js"%>
         </script>
-        <style>
+        <style type="text/css">
             <%@include file="../css/reset.css"%>
             <%@include file="../css/text.css"%>
             <%@include file="../css/960_24_col.css"%>
             <%@include file="../css/header-footer.css"%>
             <%@include file="../css/form.css"%>
         </style>
-        <link rel="stylesheet" href="../css/reset.css">
-        <link rel="stylesheet" href="../css/text.css">
-        <link rel="stylesheet" href="../css/960_24_col.css">
-        <link rel="stylesheet" href="../css/header-footer.css">
-        <link rel="stylesheet" href="../css/form.css">
+
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
 
-        <script type="text/javascript" src="/js/scroll.js"></script>
+        <script type="text/javascript" src="<c:url value="../js/scroll.js"/>"></script>
 
     </head>
     <body>
