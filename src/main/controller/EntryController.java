@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class EntryController {
     @RequestMapping("/login")
     public String onSign(){
-        return "WEB-INF/main";
+        return "main";
     }
     @RequestMapping("/register")
     public String onMainReg(){
-        return "WEB-INF/main";
+        return "main";
     }
 }

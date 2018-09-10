@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
@@ -48,6 +49,12 @@
                         </span>
                     </div>
                     <form:form class="login100-form validate-form" action="${pageContext.request.contextPath}/authenticateTheUser" method="POST">
+                        <%--<c:if test="${param.error !=null}">--%>
+                            <%--<i>Sorry! You entered invalid username/password</i>--%>
+                        <%--</c:if>--%>
+                        <%--<c:if test="${param.logout !=null}">--%>
+                            <%--<i>You have been logged out</i>--%>
+                        <%--</c:if>--%>
                         <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                             <span class="label-input100"><b>Username</b></span>
                             <input class="input100" type="text" id="username" name="username" placeholder="Enter username">
@@ -76,10 +83,10 @@
                         </div>
 
                         <div class="container-login100-form-btn" >
-                            <%--<button class="login100-form-btn">--%>
-                                <%--Login--%>
-                            <%--</button>--%>
-                            <input type="submit" value="Login" />
+                            <button class="login100-form-btn">
+                                <input type="submit" value="Login" class="login100-form-btn" />
+                            </button>
+
                         </div>
                     </form:form>
                 </div>
@@ -102,6 +109,6 @@
         <script src="../vendor/countdowntime/countdowntime.js"></script>
         <!--===============================================================================================-->
         <script src="../js/entry.js"></script>
-
+        <script src="../main.jsp"></script>
     </body>
 </html>

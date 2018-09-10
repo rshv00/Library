@@ -144,6 +144,7 @@ img {
   http://css-tricks.com/ie-fix-bicubic-scaling-for-images
 */
   -ms-interpolation-mode: bicubic;
+  margin: 10px;
 }
 
 ol,

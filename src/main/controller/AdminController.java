@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminController {
     @RequestMapping("/add")
     public String addBook(){
-        return "WEB-INF/main";
+        return "main";
     }
 }
 
