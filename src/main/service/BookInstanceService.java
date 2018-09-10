@@ -2,8 +2,8 @@ package main.service;
 
 import main.entity.BookInstance;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public interface BookInstanceService {
 
@@ -27,9 +27,9 @@ public interface BookInstanceService {
      **/
     List<BookInstance> getInstances(String bookName, int editionYear);
 
-    public int takenTimes(int id);
+    public int getTakenTimes(long id);
 
-    public HashMap<Long, Integer> takenTimes(String bookName);
+    public Map<Long, Integer> getTakenTimes(String bookName);
 
     /*
      * All instances, where BookInstance.available=true
@@ -41,6 +41,6 @@ public interface BookInstanceService {
      * */
     public boolean checkInstanceExist(String bookName, int editionYear);
 
-    public int countInstancesAfter1991();
+    public int getCountInstancesAfter1991();
 
 }

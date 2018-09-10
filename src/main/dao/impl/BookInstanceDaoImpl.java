@@ -3,12 +3,11 @@ package main.dao.impl;
 
 import main.dao.generic.BookInstanceDao;
 import main.entity.BookInstance;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 @Transactional
@@ -22,23 +21,29 @@ public class BookInstanceDaoImpl extends GenericDaoImpl<BookInstance, Long, Inte
 
 
     @Override
-    public int takenTimes(int id) {
-        return 0;
+    public int getTakenTimes(long id) {
+        BookInstance bi = getElementById(id);
+
+        Query query = sessionFactory
+                .getCurrentSession()
+                .createQuery("select count(Record.instance) from Record r where r.instance = :bi");
+        query.setParameter("bi", bi);
+
+        return (int) query.list().get(0);
     }
 
-    @Override
-    public HashMap<Long, Integer> takenTimes(String bookName) {
-        return null;
-    }
 
     @Override
     public List<BookInstance> getAvailableInstances() {
         List<BookInstance> allInstances = getAllElements();
         List<BookInstance> availableInstances = null;
 
+        if (allInstances.isEmpty()) {
+            return null;
+        }
         for (BookInstance instance : allInstances) {
-            if (instance.getAvailable()){
-                allInstances.add(instance);
+            if (instance.getAvailable()) {
+                availableInstances.add(instance);
             }
         }
         return availableInstances;

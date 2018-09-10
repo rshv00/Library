@@ -6,8 +6,8 @@ import main.service.BookInstanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BookInstanceServiceImpl implements BookInstanceService {
@@ -52,18 +52,18 @@ public class BookInstanceServiceImpl implements BookInstanceService {
     }
 
     @Override
-    public int takenTimes(int id) {
-        return dao.takenTimes(id);
+    public int getTakenTimes(long id) {
+        return dao.getTakenTimes(id);
     }
 
     @Override
-    public HashMap<Long, Integer> takenTimes(String bookName) {
-        return dao.takenTimes(bookName);
+    public Map<Long, Integer> getTakenTimes(String bookName) {
+        return null;
     }
 
     @Override
     public List<BookInstance> getAvailableInstances() {
-        return null;
+        return dao.getAvailableInstances();
     }
 
     @Override
@@ -72,7 +72,7 @@ public class BookInstanceServiceImpl implements BookInstanceService {
     }
 
     @Override
-    public int countInstancesAfter1991() {
+    public int getCountInstancesAfter1991() {
         return dao.countInstancesAfter1991();
     }
 }
