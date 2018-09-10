@@ -53,7 +53,7 @@ public class PersistenceConfig {
     public LocalSessionFactoryBean sessionFactory(DataSource ds) {
         LocalSessionFactoryBean sf = new LocalSessionFactoryBean();
         sf.setDataSource(ds);
-        sf.setPackagesToScan("config", "../service","../dao", "../entity");
+        sf.setPackagesToScan("main");
         sf.setHibernateProperties(getHibernateProperties());
         return sf;
     }

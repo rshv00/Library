@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Controller
 @RequestMapping("/admin")
 public class BookController {
@@ -36,12 +39,15 @@ public class BookController {
         author1.setName(author);
         Author author2 = new Author();
         author2.setName(coauthor);
+        //Set<Author> authorSet = new HashSet<>();
+        //authorSet.add(author1);
+        //authorSet.add(author2);
         bookInstance.setBook(book);
         bis.addBookInstance(bookInstance);
         bs.addBook(book);
         as.addAuthor(author1);
         as.addAuthor(author2);
-
+       // book.setAuthors(authorSet);
         return "WEB-INF/main";
     }
 }
