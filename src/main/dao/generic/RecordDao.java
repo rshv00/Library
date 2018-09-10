@@ -28,4 +28,6 @@ public interface RecordDao extends GenericDao<Record, Long, ObjectUtils.Null>{
      * @return list of debtors
      */
     List<User> getDebtors(int periodDays);
+
+    public int getAvgAgeOfReaders(long authorId);
 }

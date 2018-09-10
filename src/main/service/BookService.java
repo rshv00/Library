@@ -1,11 +1,10 @@
 package main.service;
 
 import main.entity.Book;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
-@Service
 public interface BookService {
 
     public void addBook(Book book);
@@ -17,11 +16,6 @@ public interface BookService {
     public Book getBookById(Long id);
 
     public void updateBook(Book book);
-
-    /*
-     * Most taken books
-     * */
-    List<Book> getTopBooks();
 
     /*
      * Most taken books by period in days
@@ -36,18 +30,25 @@ public interface BookService {
     /*
      * Book taken times
      * */
-    int bookTakenTimes(long id);
+    int getBookTakenTimes(long id);
+
+    /**
+     * @param bookId
+     * @return Map with InstanceID, TakenTimes
+     */
+    Map<Long, Integer> getBookTakenTimesByEachInstance(long bookId);
 
     /*
      * Average age of readers by book name
      **/
-    int avgAgeOfReaders(String bookName);
+    int getAvgAgeOfReaders(long bookId);
 
     /*
      * Average reading time
      * */
-    int avgReadTime(String bookName);
+    int getAvgReadTime(long bookId);
 
-    boolean checkBookExists(String bookName);
+    boolean checkBookExists(long bookId);
+
 
 }

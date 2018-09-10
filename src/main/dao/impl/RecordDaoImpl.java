@@ -83,8 +83,8 @@ public class RecordDaoImpl extends GenericDaoImpl<Record, Long, ObjectUtils.Null
 
         List<User> debtors = null;
 
-        for (int j = 0; j < debtRecords.size(); j++) {
-            User user = debtRecords.get(j).getUser();
+        for (Record debtRecord : debtRecords) {
+            User user = debtRecord.getUser();
             debtors.add(user);
         }
 
@@ -93,5 +93,12 @@ public class RecordDaoImpl extends GenericDaoImpl<Record, Long, ObjectUtils.Null
         }
 
         return debtors;
+    }
+
+    @Override
+    public int getAvgAgeOfReaders(long authorId) {
+        List<Record> records = getAllElements();
+
+        return 0;
     }
 }

@@ -1,11 +1,9 @@
 package main.service;
 
 import main.entity.User;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface UserService {
 
     public void addUser(User user);

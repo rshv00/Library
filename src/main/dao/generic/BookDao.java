@@ -3,41 +3,47 @@ package main.dao.generic;
 import main.entity.Book;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BookDao extends GenericDao<Book, Long, Integer> {
 
-    /*
-     * Most taken books
-     * */
-    List<Book> getTopBooks();
-
-    /*
-     * Most taken books by period in days
-     * */
+    /**
+     * @return 10 most taken books by period in days. In case  parameter days = 0 returns most taken books by all time
+     */
     List<Book> getTopBooks(int days);
 
-    /*
-     * Flop books, were taken as minimum once
-     * */
+    /**
+     * @return Flop books were taken as minimum once
+     */
     List<Book> getFlopBooks();
 
-    /*
-     * Book taken times
-     * */
-    int bookTakenTimes(long id);
+    /**
+     * @return Book taken times
+     */
+    int getBookTakenTimes(long id);
 
-    /*
-     * Average age of readers by book name
+    /**
+     * @param bookId
+     * @return Map with InstanceID, TakenTimes
+     */
+    Map<Long, Integer> getBookTakenTimesByEachInstance(long bookId);
+
+    /**
+     * @return Average age of readers by book name
      **/
-    int avgAgeOfReaders(String bookName);
+    int getAvgAgeOfReaders(long bookId);
 
-    /*
-     * Average reading time
-     * */
-    int avgReadTime(String bookName);
+    /**
+     * @param bookId
+     * @return Average reading time
+     */
+    int getAvgReadTime(long bookId);
 
-    boolean checkBookExists(String bookName);
-
+    /**
+     * @param bookId
+     * @return true if book exists
+     */
+    boolean checkBookExists(long bookId);
 
 
 }

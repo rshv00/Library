@@ -39,13 +39,13 @@
             </header>
             <div class="main">
                 <p class="title">Top 10 most popular books by all time</p>
-                <form action="" id="dropdown">
+                <form action="trends" id="dropdown">
                     <label class="label_stats" for="drdown">Change:</label>
-                    <select class="drdown" onchange="document.location=this.options[this.selectedIndex].value">
-                        <option value="trends.html">All time</option>
-                        <option value="trends.html?q=30">30 days</option>
-                        <option value="trends.html?q=183">6 months</option>
-                        <option value="trends.html?q=365">12 months</option>
+                    <select name = "dropDown" class="drdown" onchange="document.location=this.options[this.selectedIndex].value">
+                        <option value="0">All time</option>
+                        <option value="30">30 days</option>
+                        <option value="183">6 months</option>
+                        <option value="365">12 months</option>
                     </select>
                 </form>
 
@@ -57,7 +57,7 @@
                         <th>Coauthor</th>
                         <th>Edition Year</th>
                     </tr>
-                    <c:forEach var="book" items="${listBook}">
+                    <c:forEach var="book" items="${listOfPopular}">
                         <tr>
                             <td><c:out value="${book.bookName}"/></td>
                             <td><c:out value="${book.authorName}"/></td>
@@ -70,29 +70,20 @@
                 <p class="title">Top 10 most unpopular books*</p>
                 <table id="myTable" class="stats">
                     <tr class="header">
-                        <th></th>
-                        <th>Book</th>
-                        <th>Author</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Fairy Tales</td>
-                        <td>Taras Shevchenko</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Not Fairy Tales</td>
-                        <td>Lesia Ukrainka</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Maybe Fairy Tales</td>
-                        <td>Orest Patuk</td>
+
+                    <c:forEach var="bookUn" items="${listOfUnpopular}">
+                        <tr>
+                            <td><c:out value="${bookUn.bookName}"/></td>
+                            <td><c:out value="${bookUn.authorName}"/></td>
+                            <td><c:out value="${bookUn.coauthorName}"/></td>
+                            <td><c:out value="${bookUn.editionYear}"/></td>
+                        </tr>
+                    </c:forEach>
                     </tr>
                 </table>
                 <p class="t2">*Starting books were taken as minimum once by all time</p>
 
-                <p class="t2" id="tip" >By the way, there are ... books written after Independency of Ukraine</p>        
+                <p class="t2" id="tip" >By the way, there are <c:out value="${numberDuringIndep}"></c:out> books written after Independency of Ukraine</p>
 
             </div>
         </div>

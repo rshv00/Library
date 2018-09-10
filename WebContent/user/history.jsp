@@ -47,9 +47,12 @@
                         <th>Taken</th>
                         <th>Returned</th>
                     </tr>
-                   <c:forEach var="record" items="${records}">
+                   <c:forEach var="record" items="${myRecords}">
                        <tr>
-                           <td c:out></td>
+                           <td><c:out value="${record.id}"></c:out></td>
+                           <td><c:out value="${record.bookInstance.book.getName()}"></c:out></td>
+                           <td><c:out value="${record.taken}"></c:out></td>
+                           <td><c:out value="${record.returned}"></c:out></td>
                        </tr>
                    </c:forEach>
                 </table>

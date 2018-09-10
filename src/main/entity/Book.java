@@ -1,8 +1,7 @@
 package main.entity;
 
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -14,16 +13,19 @@ public class Book {
     @Column(name = "book_id")
     private long id;
     private String name;
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "author_book", joinColumns = {@JoinColumn(name = "book_id")},
             inverseJoinColumns = {@JoinColumn(name = "author_id")})
-    private Set<Author> authors;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "book",fetch = FetchType.EAGER)
-    private Set<BookInstance> bookInstances;
+    private Set<Author> authors = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "book", fetch = FetchType.EAGER)
+    private Set<BookInstance> bookInstances ;
 
     public Book() {
     }
 
+    public void addAuthor(Author author){
+        this.authors.add(author);
+    }
     public Set<BookInstance> getBookInstances() {
         return bookInstances;
     }

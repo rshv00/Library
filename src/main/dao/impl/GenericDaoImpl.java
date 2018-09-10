@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.io.Serializable;
 import java.util.List;
 
-@Repository
 public abstract class GenericDaoImpl<E, ID extends Serializable, P> implements GenericDao<E, ID, P> {
 
     @Autowired

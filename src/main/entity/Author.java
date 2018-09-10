@@ -1,6 +1,7 @@
 package main.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 @Entity
 @Table(name = "authors")
@@ -14,7 +15,10 @@ public class Author {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "author_book", joinColumns = {@JoinColumn(name = "author_id")},
             inverseJoinColumns = {@JoinColumn(name = "book_id")})
-    private Set<Book> books;
+    private Set<Book> books = new HashSet<>();
+    public void addBook(Book book){
+        this.books.add(book);
+    }
 
     public Author() {
     }

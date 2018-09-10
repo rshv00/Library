@@ -48,31 +48,21 @@
                         <th></th>
                     </tr>
                     <tr>
-                        <td>Fairy Tales</td>
-                        <td>Taras Shevchenko</td>
-                        <td>1</td>
-                        <td><a href="?ret_id=8">Return</a></td>
-                    </tr>
+                        <c:forEach var="records" items="${myRecords}">
                     <tr>
-                        <td>Not Fairy Tales</td>
-                        <td>Lesia Ukrainka</td>
-                        <td>8</td>
-                        <td><a href="?ret_id=251">Return</a></td>
-                    </tr>
-                    <tr>
-                        <td>Maybe Fairy Tales</td>
-                        <td>Orest Patuk</td>
-                        <td>19</td>
-                        <td><a href="?ret_id=958">Return</a></td>
+                        <td><c:out value="${records.book.getName()}"></c:out></td>
+                        <td><c:out value="${records.author.getName()}"></c:out></td>
+                        <td><c:out value="${records.}"></c:out></td>
+                    </tr> </c:forEach>
                     </tr> 
                 </table>
                 <p class="t2">Please, return books before 30 days. After one month user counts as a debtor.</p>
                 <p class="title">Info</p>
                 <div class="container_24">
-                    <p class="t2">username: someusername</p>
+                    <p class="t2">username:<c:out value="${userName}"></c:out></p>
                     <p class="t2"><a href="change-pass.jsp">change password</a></p>
                 </div>
-                <p class="t3">You are using Library for ... days</p>
+                <p class="t3">You are using Library for <c:out value="${daysOfUsing}"></c:out> days</p>
             </div>
         </div>
         <footer>

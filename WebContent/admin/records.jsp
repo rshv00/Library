@@ -48,7 +48,7 @@
                         <th>Returned</th>     
                     </tr>
 
-                        <c:forEach var="records" items="${listRecords}">
+                        <c:forEach var="records" items="${records}">
                     <tr>
                         <td><c:out value="${records.instanceId}"></c:out></td>
                         <td><c:out value="${records.user.getUserId()}"></c:out></td>
