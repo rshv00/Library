@@ -5,13 +5,14 @@ import main.entity.User;
 import org.apache.commons.lang3.ObjectUtils;
 
 import java.util.List;
+import java.util.Map;
 
 public interface RecordDao extends GenericDao<Record, Long, ObjectUtils.Null>{
 
-    /*
-     * All records that are on hands by userId
-     * */
-    List<Record> getActiveRecords(Long userId);
+    /**
+     * @return map with key Record, value DaysOnHands with records that are on hands by userId
+     */
+    Map<Record, Integer> getActiveRecords(Long userId);
 
     /*
      * All records that are on hands

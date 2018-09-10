@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Transactional
 @Repository
@@ -23,11 +24,20 @@ public class RecordDaoImpl extends GenericDaoImpl<Record, Long, ObjectUtils.Null
     }
 
     @Override
-    public List<Record> getActiveRecords(Long userId) {
+    public Map<Record, Integer> getActiveRecords(Long userId) {
+        Map<Record, Integer> map = null;
+        LocalDate now = LocalDate.now();
+
         List<Record> allRecords = getAllElements();
 
-
-        return null;
+        for (Record record : allRecords) {
+            if (record.getReturned() == null && record.getUser().getId() == userId) {
+                LocalDate taken = record.getTaken();
+                int daysOnHands = (int) Math.abs(ChronoUnit.DAYS.between(now, taken));
+                map.put(record, daysOnHands);
+            }
+        }
+        return map;
     }
 
     @Override

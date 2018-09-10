@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class BookInstanceServiceImpl implements BookInstanceService {
@@ -54,11 +53,6 @@ public class BookInstanceServiceImpl implements BookInstanceService {
     @Override
     public int getTakenTimes(long id) {
         return dao.getTakenTimes(id);
-    }
-
-    @Override
-    public Map<Long, Integer> getTakenTimes(String bookName) {
-        return null;
     }
 
     @Override

@@ -41,11 +41,6 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public int getAvgAgeOfReaders(long authorId) {
-        return dao.getAvgAgeOfReaders(authorId);
-    }
-
-    @Override
     public boolean checkAuthorExist(String authorName) {
         return dao.checkAuthorExist(authorName);
     }

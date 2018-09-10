@@ -4,6 +4,7 @@ import main.entity.Record;
 import main.entity.User;
 
 import java.util.List;
+import java.util.Map;
 
 public interface RecordService {
 
@@ -17,10 +18,10 @@ public interface RecordService {
 
     public void updateRecord(Record record);
 
-    /*
-     * All records that are on hands by userId
-     * */
-    List<Record> getActiveRecords(Long userId);
+    /**
+     * @return map with key Record, value DaysOnHands with records that are on hands by userId
+     */
+    Map<Record, Integer> getActiveRecords(Long userId);
 
     /*
      * All records that are on hands

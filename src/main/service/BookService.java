@@ -27,6 +27,8 @@ public interface BookService {
      * */
     List<Book> getFlopBooks();
 
+    List<Book> getAllBooks(long authorId);
+
     /*
      * Book taken times
      * */

@@ -17,10 +17,7 @@ public interface AuthorService {
 
     public void updateAuthor(Author author);
 
-    /*
-     * Avg age of users by author
-     * */
-    int getAvgAgeOfReaders(long authorId);
+
 
     boolean checkAuthorExist(String authorName);
 
