@@ -75,20 +75,20 @@
         <p class="title">Search available books</p>
         <input type="text" id="myInput" onkeyup="search()" placeholder="E.g Fairy Tales" onchange="showTable()"
                title="Type field">
-        <se id="myTable">
+        <table id="myTable">
             <tr class="header">
                 <th>Book name</th>
                 <th>Author</th>
                 <th>Coauthor</th>
                 <th>Year</th>
-                <th></th>
+                <th>Action</th>
             </tr>
             <c:forEach var="book" items="${listBook}">
                 <tr>
                     <td><c:out value="${book.name}"/></td>
-                    <td><c:out value="${book.authors[0]}"/></td>
+                    <td><c:out value="${book.authors}"/></td>
                     <td><c:out value="${book.authors[1]}"/></td>
-                    <td><c:out value="${book.bookInstances.editionYear}"/></td>
+                    <td><c:out value="${book.bookInstances.toArray()}"/></td>
                     <td>
                         <a href="${pageContext.request.contextPath}/main.jsp?reserve=<c:out value='${book.id}'/>">Reserve</a>
                     </td>
@@ -103,17 +103,16 @@
             <tr class="header">
                 <th>Book id</th>
                 <th>Book name</th>
-                <th>Author</th>
-                <th>Coauthor</th>
-                <th>Edition year</th>
-                <th></th>
+                <th>Year</th>
+                <th>Availability</th>
+                <th>Action</th>
             </tr>
-            <c:forEach var="book" items="${listBook}">
+            <c:forEach var="bookInstance" items="${listBook}">
                 <tr>
-                    <td><c:out value="${book.id}"/></td>
-                    <td><c:out value="${book.name}"/></td>
-                    <%--<td><c:out value="${book.authors}"/></td>--%>
-                    <%--<td><c:out value="${book.coauthorName}"/></td>--%>
+                    <td><c:out value="${bookInstance.id}"/></td>
+                    <td><c:out value="${bookInstance.book.name}"/></td>
+                    <td><c:out value="${bookInstance.editionYear}"/></td>
+                    <td><c:out value="${bookInstance.available}"/></td>
                     <%--<td><c:out value="${book.editionYear}"/></td>--%>
                     <td>
                         <a href="/edit?id=<c:out value='${book.id}' />">Edit</a>
