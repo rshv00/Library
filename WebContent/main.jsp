@@ -88,7 +88,6 @@
                     <td><c:out value="${book.name}"/></td>
                     <td><c:out value="${book.authors[0]}"/></td>
                     <td><c:out value="${book.authors[1]}"/></td>
-                    <td><c:out value="${book.bookInstances.editionYear}"/></td>
                     <td>
                         <a href="${pageContext.request.contextPath}/main.jsp?reserve=<c:out value='${book.id}'/>">Reserve</a>
                     </td>
