@@ -5,13 +5,12 @@ import main.service.BookInstanceService;
 import main.service.impl.BookServiceImpl;
 import main.service.impl.RecordServiceImpl;
 import main.service.impl.UserServiceImpl;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,26 +41,38 @@ public class UserController {
         modelAndView.addObject("userName", user.getName());
         return modelAndView;
     }
+
     @GetMapping("/trends")
-    public ModelAndView showTrends(@RequestParam("dropDown")String value){
+    public ModelAndView showTrends(@RequestParam("dropDown") String value) {
         int days = Integer.parseInt(value);
         ModelAndView modelAndView = new ModelAndView("user/trends");
-        modelAndView.addObject("listOfPopular",bookService.getTopBooks(days));
-        modelAndView.addObject("listOfUnpopular",bookService.getFlopBooks());
-        modelAndView.addObject("numberDuringIndep",bookInstanceService.countInstancesAfter1991());
+        modelAndView.addObject("listOfPopular", bookService.getTopBooks(days));
+        modelAndView.addObject("listOfUnpopular", bookService.getFlopBooks());
+        modelAndView.addObject("numberDuringIndep", bookInstanceService.getCountInstancesAfter1991());
         return modelAndView;
     }
+
     @GetMapping("/history")
-    public ModelAndView showMyHistory(){
+    public ModelAndView showMyHistory() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         long id = Long.parseLong(currentPrincipalName);
         ModelAndView modelAndView = new ModelAndView("user/history");
-        modelAndView.addObject("myRecords",recordService.getHistoryOfRecords(id));
+        modelAndView.addObject("myRecords", recordService.getHistoryOfRecords(id));
         return modelAndView;
     }
-    @GetMapping("/book-stats")
-    public ModelAndView showBook(@RequestParam("bookName")String bookName){
 
+    @GetMapping("/book-stats")
+    public ModelAndView showBook(@RequestParam("bookName") String bookName) {
+        return new ModelAndView();
+    }
+
+    @PostMapping("/change-pass")
+    public ModelAndView changePass(@RequestParam("password") String pass) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        long id = Long.parseLong(currentPrincipalName);
+
+        return new ModelAndView("/change-pass");
     }
 }
