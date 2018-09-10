@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class MainController {
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String start(Model model){
-        return "WEB-INF/main";
+        return "main";
     }
 }

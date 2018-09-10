@@ -46,9 +46,9 @@ public class UserController {
     public ModelAndView showTrends(@RequestParam("dropDown") String value) {
         int days = Integer.parseInt(value);
         ModelAndView modelAndView = new ModelAndView("user/trends");
-        modelAndView.addObject("listOfPopular", bookService.getTopBooks(days));
-        modelAndView.addObject("listOfUnpopular", bookService.getFlopBooks());
-        modelAndView.addObject("numberDuringIndep", bookInstanceService.getCountInstancesAfter1991());
+        modelAndView.addObject("listOfPopular",bookService.getTopBooks(days));
+        modelAndView.addObject("listOfUnpopular",bookService.getFlopBooks());
+        modelAndView.addObject("numberDuringIndep",bookInstanceService.getCountInstancesAfter1991());
         return modelAndView;
     }
 
@@ -63,6 +63,7 @@ public class UserController {
     }
 
     @GetMapping("/book-stats")
+
     public ModelAndView showBook(@RequestParam("bookName") String bookName) {
         return new ModelAndView();
     }
@@ -74,5 +75,6 @@ public class UserController {
         long id = Long.parseLong(currentPrincipalName);
 
         return new ModelAndView("/change-pass");
+
     }
 }

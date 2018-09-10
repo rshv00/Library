@@ -23,17 +23,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("Michael").password("123").roles("ADMIN");
+                .withUser("Michael").password("123").roles("USER")
+                .and().withUser("Dima").password("12345").roles("ADMIN");
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
        http.authorizeRequests()
-               .anyRequest().authenticated()
+               .antMatchers("/").hasAnyRole("ADMIN","USER")
+               .antMatchers("/admin/**").hasRole("ADMIN")
+               .antMatchers("/user/**").hasAnyRole("ADMIN","USER")
                .and()
                .formLogin()
                 .loginPage("/showLoginPage")
                 .loginProcessingUrl("/authenticateTheUser")
-                .permitAll();
+                .permitAll()
+               .and()
+               .logout().permitAll()
+               .and()
+               .exceptionHandling().accessDeniedPage("/access-denied");
     }
 
     @Bean

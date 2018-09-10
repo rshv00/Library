@@ -24,50 +24,51 @@ import java.time.LocalDate;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-    @Autowired
-    AuthorService as;
-    @Autowired
-    BookService bs;
-    @Autowired
-    BookInstanceService bis;
-    @Autowired
-    RecordServiceImpl recordService;
-    @Autowired
-    UserServiceImpl userService;
 
-    @GetMapping("/add")
-    public String createBook(@RequestParam(name = "name") String name,
-                             @RequestParam(name = "author") String author,
-                             @RequestParam(name = "coauthor") String coauthor,
-                             @RequestParam(name = "editionYear") int editionYear) {
-        BookInstance bookInstance = new BookInstance();
-        bookInstance.setEditionYear(editionYear);
-        Book book = new Book();
-        book.setName(name);
-        Author author1 = new Author();
-        author1.setName(author);
-        Author author2 = new Author();
-        author2.setName(coauthor);
-        bookInstance.setBook(book);
-        book.addAuthor(author1);
-        book.addAuthor(author2);
-        bis.addBookInstance(bookInstance);
-        bs.addBook(book);
-        as.addAuthor(author1);
-        as.addAuthor(author2);
-        return "WEB-INF/main";
-    }
+        @Autowired
+        AuthorService as;
+        @Autowired
+        BookService bs;
+        @Autowired
+        BookInstanceService bis;
+        @Autowired
+        RecordServiceImpl recordService;
+        @Autowired
+        UserServiceImpl userService;
 
-    @GetMapping("/records")
-    public ModelAndView showAllRecords() {
-        return new ModelAndView("admin/records", "records", recordService.listRecords());
-    }
+        @GetMapping("/add")
+        public String createBook (@RequestParam(name = "name") String name,
+                @RequestParam(name = "author") String author,
+                @RequestParam(name = "coauthor") String coauthor,
+        @RequestParam(name = "editionYear") int editionYear){
+            BookInstance bookInstance = new BookInstance();
+            bookInstance.setEditionYear(editionYear);
+            Book book = new Book();
+            book.setName(name);
+            Author author1 = new Author();
+            author1.setName(author);
+            Author author2 = new Author();
+            author2.setName(coauthor);
+            bookInstance.setBook(book);
+            book.addAuthor(author1);
+            book.addAuthor(author2);
+            bis.addBookInstance(bookInstance);
+            bs.addBook(book);
+            as.addAuthor(author1);
+            as.addAuthor(author2);
+            return "/main";
+        }
 
-    @GetMapping("/users-list")
-    public ModelAndView showUsersAndDebtors() {
-        ModelAndView modelAndView = new ModelAndView("admin/users-list");
-        modelAndView.addObject("users", userService.listUsers());
-        modelAndView.addObject("debtors", recordService.getDebtors(30));
-        return modelAndView;
+        @GetMapping("/records")
+        public ModelAndView showAllRecords () {
+            return new ModelAndView("admin/records", "records", recordService.listRecords());
+        }
+
+        @GetMapping("/users-list")
+        public ModelAndView showUsersAndDebtors () {
+            ModelAndView modelAndView = new ModelAndView("admin/users-list");
+            modelAndView.addObject("users", userService.listUsers());
+            modelAndView.addObject("debtors", recordService.getDebtors(30));
+            return modelAndView;
+        }
     }
-}
