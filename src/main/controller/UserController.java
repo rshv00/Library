@@ -48,7 +48,7 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView("user/trends");
         modelAndView.addObject("listOfPopular",bookService.getTopBooks(days));
         modelAndView.addObject("listOfUnpopular",bookService.getFlopBooks());
-        modelAndView.addObject("numberDuringIndep",bookInstanceService.countInstancesAfter1991());
+        modelAndView.addObject("numberDuringIndep",bookInstanceService.getCountInstancesAfter1991());
         return modelAndView;
     }
     @GetMapping("/history")
@@ -62,6 +62,6 @@ public class UserController {
     }
     @GetMapping("/book-stats")
     public ModelAndView showBook(@RequestParam("bookName")String bookName){
-
+        return null;
     }
 }

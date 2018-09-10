@@ -56,7 +56,7 @@ public class AdminController {
             bs.addBook(book);
             as.addAuthor(author1);
             as.addAuthor(author2);
-            return "WEB-INF/main";
+            return "/main";
         }
 
         @GetMapping("/records")
@@ -72,4 +72,3 @@ public class AdminController {
             return modelAndView;
         }
     }
-}
