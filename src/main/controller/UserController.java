@@ -60,4 +60,8 @@ public class UserController {
         modelAndView.addObject("myRecords",recordService.getHistoryOfRecords(id));
         return modelAndView;
     }
+    @GetMapping("/book-stats")
+    public ModelAndView showBook(@RequestParam("bookName")String bookName){
+
+    }
 }
