@@ -1,6 +1,6 @@
 package main.service.impl;
 
-import main.dao.impl.BookDaoImpl;
+import main.dao.generic.BookDao;
 import main.entity.Book;
 import main.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import java.util.List;
 public class BookServiceImpl implements BookService {
 
     @Autowired
-    private BookDaoImpl dao;
+    private BookDao dao;
 
     @Override
     public void addBook(Book book) {

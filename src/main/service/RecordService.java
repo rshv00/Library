@@ -2,11 +2,9 @@ package main.service;
 
 import main.entity.Record;
 import main.entity.User;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface RecordService {
 
     public void addRecord(Record record);

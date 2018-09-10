@@ -1,10 +1,10 @@
 package main.service;
 
 import main.entity.Author;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
+
+
 public interface AuthorService {
 
     public void addAuthor(Author author);

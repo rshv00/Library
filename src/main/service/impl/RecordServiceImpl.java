@@ -1,6 +1,6 @@
 package main.service.impl;
 
-import main.dao.impl.RecordDaoImpl;
+import main.dao.generic.RecordDao;
 import main.entity.Record;
 import main.entity.User;
 import main.service.RecordService;
@@ -13,7 +13,7 @@ import java.util.List;
 public class RecordServiceImpl implements RecordService {
 
     @Autowired
-    RecordDaoImpl dao;
+    RecordDao dao;
 
     @Override
     public void addRecord(Record record) {

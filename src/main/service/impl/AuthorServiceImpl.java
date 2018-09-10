@@ -1,6 +1,6 @@
 package main.service.impl;
 
-import main.dao.impl.AuthorDaoImpl;
+import main.dao.generic.AuthorDao;
 import main.entity.Author;
 import main.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,15 +9,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public  class AuthorServiceImpl implements AuthorService {
+public class AuthorServiceImpl implements AuthorService {
 
     @Autowired
-    AuthorDaoImpl dao;
+    AuthorDao dao;
 
     @Override
     public void addAuthor(Author author) {
-        if(!dao.checkAuthorExist(author.getName()))
-        dao.addElement(author);
+        if (!dao.checkAuthorExist(author.getName()))
+            dao.addElement(author);
     }
 
     @Override

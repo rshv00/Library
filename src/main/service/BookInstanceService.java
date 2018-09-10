@@ -1,12 +1,10 @@
 package main.service;
 
 import main.entity.BookInstance;
-import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 
-@Service
 public interface BookInstanceService {
 
     public void addBookInstance(BookInstance instance);

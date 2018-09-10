@@ -3,6 +3,7 @@ package main.dao.impl;
 
 import main.dao.generic.BookInstanceDao;
 import main.entity.BookInstance;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -49,7 +50,7 @@ public class BookInstanceDaoImpl extends GenericDaoImpl<BookInstance, Long, Inte
     public int countInstancesAfter1991() {
         List<Long> list = sessionFactory
                 .getCurrentSession()
-                .createQuery("select id from book_instances as bi where bi.editionYear>1991").list();
+                .createQuery("select id from BookInstance as bi where bi.editionYear>1991").list();
         return list.size();
     }
 

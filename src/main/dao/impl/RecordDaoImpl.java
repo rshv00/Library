@@ -94,4 +94,11 @@ public class RecordDaoImpl extends GenericDaoImpl<Record, Long, ObjectUtils.Null
 
         return debtors;
     }
+
+    @Override
+    public int getAvgAgeOfReaders(long authorId) {
+        List<Record> records = getAllElements();
+
+        return 0;
+    }
 }

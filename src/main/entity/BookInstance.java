@@ -16,7 +16,7 @@ public class BookInstance{
     @Column(name = "edition_year")
     private int editionYear;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "book_id")
     private Book book;
 
