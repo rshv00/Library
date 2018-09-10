@@ -39,7 +39,7 @@
             </header>
             <div class="main">
                 <p class="title">Top 10 most popular books by all time</p>
-                <form action="" id="dropdown">
+                <form action="trends" id="dropdown">
                     <label class="label_stats" for="drdown">Change:</label>
                     <select class="drdown" onchange="document.location=this.options[this.selectedIndex].value">
                         <option value="trends.html">All time</option>
