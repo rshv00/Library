@@ -85,10 +85,10 @@
             </tr>
             <c:forEach var="book" items="${listBook}">
                 <tr>
-                    <td><c:out value="${book.bookName}"/></td>
-                    <td><c:out value="${book.authorName}"/></td>
-                    <td><c:out value="${book.coauthorName}"/></td>
-                    <td><c:out value="${book.editionYear}"/></td>
+                    <td><c:out value="${book.name}"/></td>
+                    <td><c:out value="${book.authors[0]}"/></td>
+                    <td><c:out value="${book.authors[1]}"/></td>
+                    <td><c:out value="${book.bookInstances.editionYear}"/></td>
                     <td>
                         <a href="${pageContext.request.contextPath}/main.jsp?reserve=<c:out value='${book.id}'/>">Reserve</a>
                     </td>
@@ -111,10 +111,10 @@
             <c:forEach var="book" items="${listBook}">
                 <tr>
                     <td><c:out value="${book.id}"/></td>
-                    <td><c:out value="${book.bookName}"/></td>
-                    <td><c:out value="${book.authorName}"/></td>
-                    <td><c:out value="${book.coauthorName}"/></td>
-                    <td><c:out value="${book.editionYear}"/></td>
+                    <td><c:out value="${book.name}"/></td>
+                    <%--<td><c:out value="${book.authors}"/></td>--%>
+                    <%--<td><c:out value="${book.coauthorName}"/></td>--%>
+                    <%--<td><c:out value="${book.editionYear}"/></td>--%>
                     <td>
                         <a href="/edit?id=<c:out value='${book.id}' />">Edit</a>
                     </td>
