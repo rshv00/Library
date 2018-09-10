@@ -46,9 +46,15 @@ public class BookServiceImpl implements BookService {
     public List<Book> getTopBooks(int days) {
         return dao.getTopBooks(days);
     }
+
     @Override
     public List<Book> getFlopBooks() {
         return dao.getFlopBooks();
+    }
+
+    @Override
+    public List<Book> getAllBooks(long authorId) {
+        return dao.getAllBooks(authorId);
     }
 
     @Override

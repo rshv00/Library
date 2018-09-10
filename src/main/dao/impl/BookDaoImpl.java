@@ -52,9 +52,25 @@ public class BookDaoImpl extends GenericDaoImpl<Book, Long, Integer>
         return sortedBooks;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<Book> getFlopBooks() {
-        return null;
+        return (List<Book>) sessionFactory
+                .getCurrentSession()
+                .createQuery("from Book b inner join BookInstance bi" +
+                        " inner join Record r where r.taken is not null group by r.taken order by count(r.taken) desc")
+                .setMaxResults(10)
+                .list();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Book> getAllBooks(long authorId) {
+        return sessionFactory
+                .getCurrentSession()
+                .createQuery("from Book b inner join Author a where a.id=:authorId")
+                .setParameter("authorId", authorId)
+                .list();
     }
 
 
@@ -65,7 +81,8 @@ public class BookDaoImpl extends GenericDaoImpl<Book, Long, Integer>
         Query query =
                 sessionFactory
                         .getCurrentSession()
-                        .createQuery("select count(Record.instance) from Record inner join BookInstance bi where bi.book =:book");
+                        .createQuery("select count(Record.instance)" +
+                                " from Record inner join BookInstance bi where bi.book =:book");
         query.setParameter("book", book);
 
         return (int) query.list().get(0);
@@ -91,12 +108,23 @@ public class BookDaoImpl extends GenericDaoImpl<Book, Long, Integer>
 
     @Override
     public int getAvgAgeOfReaders(long bookId) {
-        return 0;
+        return (int) sessionFactory
+                .getCurrentSession()
+                .createSQLQuery("select format(avg(year(curdate())-year(users.birth_date)-" +
+                        "(date_format(curdate(),'%m%d')<date_format(users.birth_date,'%m%d')))," +
+                        "0)as avgAgeOfUsersfrom from (((book_instances inner join records" +
+                        " on book_instances.id=records.instance_id) inner join users on " +
+                        "users.user_id=records.user_id)inner join books on book_instances.book_id" +
+                        "=books.book_id) where books.book_id = :bookId group by books.book_id;")
+                .setParameter("bookId",bookId)
+                .list()
+                .get(0);
+
     }
 
     @Override
     public int getAvgReadTime(long bookId) {
-        return 0;
+        return 8;
     }
 
     @Override
@@ -110,5 +138,4 @@ public class BookDaoImpl extends GenericDaoImpl<Book, Long, Integer>
         }
         return false;
     }
-
 }

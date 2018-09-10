@@ -3,7 +3,6 @@ package main.service;
 import main.entity.BookInstance;
 
 import java.util.List;
-import java.util.Map;
 
 public interface BookInstanceService {
 
@@ -28,8 +27,6 @@ public interface BookInstanceService {
     List<BookInstance> getInstances(String bookName, int editionYear);
 
     public int getTakenTimes(long id);
-
-    public Map<Long, Integer> getTakenTimes(String bookName);
 
     /*
      * All instances, where BookInstance.available=true

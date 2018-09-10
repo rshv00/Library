@@ -26,5 +26,12 @@ public interface UserService {
      * */
     User getUserByCredentials(String login, String pass);
 
+    /**
+     * @param userId
+     * @param newPass
+     * @implNote updates pass and stores new data to db
+     */
+    void changePassword(long userId, String newPass);
+
 
 }

@@ -49,4 +49,11 @@ public class UserServiceImpl implements UserService {
         return dao.getUserByCredentials(login, pass);
     }
 
+    @Override
+    public void changePassword(long userId, String newPass) {
+        User user = getUserById(userId);
+        user.setPass(newPass);
+        updateUser(user);
+    }
+
 }

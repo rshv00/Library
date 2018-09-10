@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class RecordServiceImpl implements RecordService {
@@ -41,7 +42,7 @@ public class RecordServiceImpl implements RecordService {
     }
 
     @Override
-    public List<Record> getActiveRecords(Long userId) {
+    public Map<Record, Integer> getActiveRecords(Long userId) {
         return dao.getActiveRecords(userId);
     }
 

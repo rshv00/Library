@@ -78,17 +78,16 @@
         <table id="myTable">
             <tr class="header">
                 <th>Book name</th>
-                <th>Author</th>
-                <th>Coauthor</th>
                 <th>Year</th>
+                <th>Availability</th>
                 <th>Action</th>
             </tr>
-            <c:forEach var="book" items="${listBook}">
+            <c:forEach var="bookInstance" items="${listBook}">
                 <tr>
-                    <td><c:out value="${book.name}"/></td>
-                    <td><c:out value="${book.authors}"/></td>
-                    <td><c:out value="${book.authors[1]}"/></td>
-                    <td><c:out value="${book.bookInstances.toArray()}"/></td>
+                    <td><c:out value="${bookInstance.book.name}"/></td>
+                    <td><c:out value="${bookInstance.editionYear}"/></td>
+                    <td><c:out value="${bookInstance.available}"/></td>
+                    <%--<td><c:out value="${bookInstance.bookInstances.toArray()}"/></td>--%>
                     <td>
                         <a href="${pageContext.request.contextPath}/main.jsp?reserve=<c:out value='${book.id}'/>">Reserve</a>
                     </td>

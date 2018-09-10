@@ -97,6 +97,5 @@ public class BookInstanceDaoImpl extends GenericDaoImpl<BookInstance, Long, Inte
             }
         }
         return sortedList;
-
     }
 }

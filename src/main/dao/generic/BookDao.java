@@ -17,16 +17,19 @@ public interface BookDao extends GenericDao<Book, Long, Integer> {
      */
     List<Book> getFlopBooks();
 
-    /**
-     * @return Book taken times
-     */
-    int getBookTakenTimes(long id);
+
+    List<Book> getAllBooks(long authorId);
 
     /**
      * @param bookId
      * @return Map with InstanceID, TakenTimes
      */
     Map<Long, Integer> getBookTakenTimesByEachInstance(long bookId);
+
+    /**
+     * @return Book taken times
+     */
+    int getBookTakenTimes(long id);
 
     /**
      * @return Average age of readers by book name
@@ -44,6 +47,5 @@ public interface BookDao extends GenericDao<Book, Long, Integer> {
      * @return true if book exists
      */
     boolean checkBookExists(long bookId);
-
 
 }
