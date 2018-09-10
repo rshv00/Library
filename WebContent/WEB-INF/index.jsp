@@ -11,11 +11,11 @@
             <%@include file="/css/header-footer.css"%>
             <%@include file="/css/landing.css"%>
         </style>
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/text.css">
-        <link rel="stylesheet" href="css/960_24_col.css">
-        <link rel="stylesheet" href="css/header-footer.css">
-        <link rel="stylesheet" href="css/landing.css">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/text.css">
+        <link rel="stylesheet" href="../css/960_24_col.css">
+        <link rel="stylesheet" href="../css/header-footer.css">
+        <link rel="stylesheet" href="../css/landing.css">
     </head>
     <body>
         <div class="container_24">
@@ -25,7 +25,7 @@
             </header>
             <div class="main">
                 <p id="landing">by IT Academy team</p>
-                <p><a href="/sign-in.jsp">Sign in</a></p>
+                <p><a href="/showLoginPage">Sign in</a></p>
             
             </div>
             <footer style="margin-top: 300px;">

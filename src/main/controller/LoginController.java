@@ -1,15 +1,13 @@
 package main.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class LoginController {
 
-    @RequestMapping(value ="/showLoginPage", method = RequestMethod.GET)
+    @GetMapping("/showLoginPage")
     public String loginPage() {
-        return "sign-in";
+        return "WEB-INF/login";
     }
 }

@@ -37,7 +37,7 @@
                         <li><a href="me.jsp">Me</a></li>
                         <li><a href="history.jsp">History</a></li>
                         <li><a href="trends.jsp">Trends</a></li>
-                        <li><a href="../sign-in.jsp">Logout</a></li>
+                        <li><a href="../WEB-INF/login.jsp">Logout</a></li>
                     </ul>
                 </nav>
             </header>

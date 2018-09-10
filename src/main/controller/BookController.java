@@ -41,7 +41,7 @@ public class BookController {
         bs.addBook(book);
         as.addAuthor(author1);
         as.addAuthor(author2);
-        as.getAvgAgeOfReaders(1);
-        return "main";
+
+        return "WEB-INF/main";
     }
 }

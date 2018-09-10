@@ -7,24 +7,24 @@
     <meta charset="UTF-8">
     <title>Search book</title>
     <script type="text/javascript">
-        <%@include file="js/scroll.js"%>
-        <%@include file="js/searchTable.js"%>
-        <%@include file="js/showTable.js"%>
+        <%@include file="../js/scroll.js"%>
+        <%@include file="../js/searchTable.js"%>
+        <%@include file="../js/showTable.js"%>
     </script>
     <style>
-        <%@include file="css/reset.css"%>
-        <%@include file="css/960_24_col.css"%>
-        <%@include file="css/header-footer.css"%>
-        <%@include file="css/table.css"%>
-        <%@include file="css/search.css"%>
-        <%@include file="css/text.css"%>
+        <%@include file="../css/reset.css"%>
+        <%@include file="../css/960_24_col.css"%>
+        <%@include file="../css/header-footer.css"%>
+        <%@include file="../css/table.css"%>
+        <%@include file="../css/search.css"%>
+        <%@include file="../css/text.css"%>
     </style>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/960_24_col.css">
-    <link rel="stylesheet" href="css/text.css">
-    <link rel="stylesheet" href="css/header-footer.css">
-    <link rel="stylesheet" href="css/table.css">
-    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/960_24_col.css">
+    <link rel="stylesheet" href="../css/text.css">
+    <link rel="stylesheet" href="../css/header-footer.css">
+    <link rel="stylesheet" href="../css/table.css">
+    <link rel="stylesheet" href="../css/search.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet"/>
 </head>
 <body>
@@ -88,7 +88,7 @@
                     <td><c:out value="${book.coauthorName}"/></td>
                     <td><c:out value="${book.editionYear}"/></td>
                     <td>
-                        <a href="${pageContext.request.contextPath}/main.jsp?reserve=<c:out value='${book.id}'/>">Reserve</a>
+                        <a href="${pageContext.request.contextPath}/WEB-INF/main.jsp?reserve=<c:out value='${book.id}'/>">Reserve</a>
                     </td>
                 </tr>
             </c:forEach>
@@ -120,7 +120,7 @@
             <% } else {%>
             <div class="main">
                 <p id="landing" class="title2" >Welcome, guest</p>
-                <p class="title2"><a href="/sign-in.jsp" class="title2">Sign in, pls</a></p>
+                <p class="title2"><a href="/WEB-INF/login.jsp" class="title2">Sign in, pls</a></p>
 
             </div>
             <% } %>
@@ -130,9 +130,9 @@
 <footer>
     <p>2018</p>
 </footer>
-<script src="js/scroll.js"></script>
-<script src="js/showTable.js"></script>
-<script src="js/searchTable.js"></script>
+<script src="../js/scroll.js"></script>
+<script src="../js/showTable.js"></script>
+<script src="../js/searchTable.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 </html>
