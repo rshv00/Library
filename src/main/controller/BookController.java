@@ -39,15 +39,13 @@ public class BookController {
         author1.setName(author);
         Author author2 = new Author();
         author2.setName(coauthor);
-        //Set<Author> authorSet = new HashSet<>();
-        //authorSet.add(author1);
-        //authorSet.add(author2);
         bookInstance.setBook(book);
+        book.addAuthor(author1);
+        book.addAuthor(author2);
         bis.addBookInstance(bookInstance);
         bs.addBook(book);
         as.addAuthor(author1);
         as.addAuthor(author2);
-       // book.setAuthors(authorSet);
         return "WEB-INF/main";
     }
 }
