@@ -1,5 +1,7 @@
 package main.entity;
 
+import main.entity.enums.UserRole;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Set;
@@ -8,7 +10,7 @@ import java.util.Set;
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private long id;
     private String name;
@@ -17,8 +19,7 @@ public class User {
     private LocalDate registration_date;
     @OneToMany(mappedBy = "user")
     private Set<Record> records;
-    @Enumerated
-    private ROLE role;
+    private int role;
     private String login;
     private String pass;
 
@@ -89,11 +90,25 @@ public class User {
         this.pass = pass;
     }
 
-    public ROLE getRole() {
-        return role;
+    public UserRole getRole() {
+        if (role == 1) {
+            return UserRole.ROLE_ADMIN;
+        } else if (role == 2) {
+            return UserRole.ROLE_USER;
+        } else if (role == 3){
+           return UserRole.ROLE_GUEST;
+        }else{
+            return null;
+        }
     }
 
-    public enum ROLE {
-        ROLE_USER, ROLE_ADMIN, ROLE_UNKNOWN
+    public void setRole(UserRole userRole) {
+        if (userRole.equals(UserRole.ROLE_ADMIN)) {
+            this.role = 1;
+        } else if (userRole.equals(UserRole.ROLE_USER)) {
+            this.role = 2;
+        } else if (userRole.equals(UserRole.ROLE_GUEST)) {
+            this.role = 3;
+        }
     }
 }

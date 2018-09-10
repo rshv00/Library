@@ -1,7 +1,7 @@
 package main.service.impl;
 
 import main.entity.User;
-import main.entity.enums.UserRoleEnum;
+import main.entity.enums.UserRole;
 import main.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -24,7 +24,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user = userService.getUserByCredentials("colibri","blaah");
         Set<GrantedAuthority> roles = new HashSet();
-        roles.add(new SimpleGrantedAuthority(UserRoleEnum.ROLE_USER.name()));
+        roles.add(new SimpleGrantedAuthority(UserRole.ROLE_USER.name()));
 
         UserDetails userDetails = new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPass(), roles);
         return userDetails;

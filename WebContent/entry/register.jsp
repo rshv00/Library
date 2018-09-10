@@ -94,7 +94,7 @@
                             </div>
 
                             <div>
-                                <a href="../WEB-INF/login.jsp" class="txt1">
+                                <a href="login" class="txt1">
                                     <b>Already have an account?</b>
                                 </a>
                             </div>

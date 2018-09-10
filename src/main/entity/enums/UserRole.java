@@ -1,10 +1,10 @@
 package main.entity.enums;
 
-public enum UserRoleEnum {
+public enum UserRole {
     ROLE_ADMIN,
     ROLE_USER,
-    ROLE_ANONYMOUS;
+    ROLE_GUEST;
 
-    UserRoleEnum() {
+    UserRole() {
     }
 }
