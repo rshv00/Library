@@ -51,9 +51,9 @@
 
                         <c:forEach var="records" items="${records}">
                     <tr>
-                        <td><c:out value="${records.instanceId}"></c:out></td>
-                        <td><c:out value="${records.user.getUserId()}"></c:out></td>
-                        <td><c:out value="${records.book.getBookName()}"></c:out></td>
+                        <td><c:out value="${records.instance.id}"></c:out></td>
+                        <td><c:out value="${records.user.id}"></c:out></td>
+                        <td><c:out value="${records.instance.book.name}"></c:out></td>
                         <td><c:out value="${records.bookTaken}"></c:out></td>
                         <td><c:out value="${records.bookReturned}"></c:out></td>
                     </tr> </c:forEach>

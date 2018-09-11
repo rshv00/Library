@@ -46,8 +46,8 @@
                             onchange="document.location=this.options[this.selectedIndex].value">
                         <option value="trends?dropDown=0">All time</option>
                         <option value="trends?dropDown=30">30 days</option>
-                        <option value="183">6 months</option>
-                        <option value="365">12 months</option>
+                        <option value="trends?dropDown=183">6 months</option>
+                        <option value="trends?dropDown=365">12 months</option>
                     </select>
                 </form>
 
