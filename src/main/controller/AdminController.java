@@ -56,7 +56,7 @@ public class AdminController {
             bs.addBook(book);
             as.addAuthor(author1);
             as.addAuthor(author2);
-            return "/main";
+            return "/";
         }
         @GetMapping("/add-book")
         public ModelAndView showAddBook(){

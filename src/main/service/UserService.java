@@ -33,5 +33,5 @@ public interface UserService {
      */
     void changePassword(long userId, String newPass);
 
-
+    User getUserByLogin(String login);
 }

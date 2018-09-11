@@ -13,4 +13,6 @@ public interface UserDao extends GenericDao<User, Long, String> {
     * */
     User getUserByCredentials(String login, String pass);
 
+    User getUserByLogin(String login);
+
 }

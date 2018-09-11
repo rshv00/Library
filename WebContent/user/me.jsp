@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
@@ -30,10 +31,10 @@
                 <h1 class="grid_7" id="logo"><a href="<c:url value="/main"/>">library</a></h1>
                 <nav class="grid_17">
                     <ul>
-                        <li><a href="/me">Me</a></li>
-                        <li><a href="/history">History</a></li>
-                        <li><a href="/trends">Trends</a></li>
-                        <li><a href="/logout">Logout</a></li>
+                        <li><a href="/user/me">Me</a></li>
+                        <li><a href="/user/history">History</a></li>
+                        <li><a href="/user/showTrends">Trends</a></li>
+                        <li><a><form:form action="${pageContext.request.contextPath}/logout" method="POST"><input type="submit" class="a" value="Logout"/></form:form></a></li>
                     </ul>
                 </nav>
             </header>
@@ -59,7 +60,7 @@
                 <p class="title">Info</p>
                 <div class="container_24">
                     <p class="t2">username:<c:out value="${userName}"></c:out></p>
-                    <p class="t2"><a href="change-pass.jsp">change password</a></p>
+                    <p class="t2"><a href="/user/change-pass.jsp">change password</a></p>
                 </div>
                 <p class="t3">You are using Library for <c:out value="${daysOfUsing}"></c:out> days</p>
             </div>

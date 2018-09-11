@@ -56,4 +56,9 @@ public class UserServiceImpl implements UserService {
         updateUser(user);
     }
 
+    @Override
+    public User getUserByLogin(String login) {
+        return dao.getUserByLogin(login);
+    }
+
 }
