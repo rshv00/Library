@@ -51,9 +51,9 @@
         <h1 class="grid_7" id="logo"><a href="/main">Library-admin</a></h1>
         <nav class="grid_17">
             <ul>
-                <li><a href="/records">Records</a></li>
+                <li><a href="/admin/records">Records</a></li>
                 <li><a href="/admin/add-book">Add book</a></li>
-                <li><a href="/users-list">Users</a></li>
+                <li><a href="/admin/users-list">Users</a></li>
                 <li><a><form:form action="${pageContext.request.contextPath}/logout" method="POST"><input type="submit" class="a" value="Logout"/></form:form></a></li>
             </ul>
         </nav>

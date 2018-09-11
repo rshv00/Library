@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
@@ -35,10 +36,10 @@
                 <h1 class="grid_7" id="logo"><a href="<c:url value="/main"/>">l-admin</a></h1>
                 <nav class="grid_17">
                     <ul>
-                        <li><a href="/records">Records</a></li>
+                        <li><a href="/admin/records">Records</a></li>
                         <li><a href="/admin/add-book">Add book</a></li>
-                        <li><a href="/users-list">Users</a></li>
-                        <li><a href="/logout">Logout</a></li>
+                        <li><a href="/admin/users-list">Users</a></li>
+                        <li><a><form:form action="${pageContext.request.contextPath}/logout" method="POST"><input type="submit" class="a" value="Logout"/></form:form></a></li>
                     </ul>
                 </nav>
             </header>

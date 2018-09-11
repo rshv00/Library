@@ -52,7 +52,6 @@
                     <tr>
                         <td><c:out value="${records.book.getName()}"></c:out></td>
                         <td><c:out value="${records.author.getName()}"></c:out></td>
-                        <td><c:out value="${records.}"></c:out></td>
                     </tr> </c:forEach>
                     </tr> 
                 </table>
