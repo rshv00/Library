@@ -5,6 +5,7 @@ import main.entity.enums.UserRole;
 import main.service.AuthorityService;
 import main.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,9 @@ public class EntryController {
     @Autowired
     AuthorityService authorityService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @RequestMapping("/login")
     public String onSign(){
         return "main";
@@ -36,7 +40,8 @@ public class EntryController {
       User user = new User();
       user.setName(name);
       user.setUserName(login);
-      user.setPass(password);
+      user.setPass(passwordEncoder.encode(password));
+      //user.setPass("{bcrypt}"+password);
       user.setPhone(phone);
       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
       LocalDate localDate = LocalDate.parse(birthDate, formatter);
