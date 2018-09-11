@@ -31,12 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(userDetailsService);
-//        auth.authenticationProvider(authenticationProvider());
         auth.jdbcAuthentication().dataSource(dataSource);
-//        auth.inMemoryAuthentication()
-//                .withUser("Michael").password("123").roles("USER")
-//                .and().withUser("Dima").password("12345").roles("ADMIN");
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
