@@ -39,5 +39,9 @@ public interface RecordService {
      */
     List<User> getDebtors(int periodDays);
 
+    public void takeBook(long userId, long instanceId);
+
+    void returnBook(long userId, long instanceId, long recordId);
+
 
 }

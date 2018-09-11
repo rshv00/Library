@@ -1,8 +1,10 @@
 package main.service;
 
+import main.entity.Author;
 import main.entity.BookInstance;
 
 import java.util.List;
+import java.util.Set;
 
 public interface BookInstanceService {
 
@@ -14,7 +16,7 @@ public interface BookInstanceService {
 
     public BookInstance getBookById(Long id);
 
-    public void updateBook(BookInstance instance);
+    public void updateBookInstance(BookInstance instance);
 
     /*
      * Get all instances by book name
@@ -39,5 +41,7 @@ public interface BookInstanceService {
     public boolean checkInstanceExist(String bookName, int editionYear);
 
     public int getCountInstancesAfter1991();
+
+    public void updateBookInfo(long instanceId, String bookName, String coauthor, int editionYear, Set<Author> authors);
 
 }
