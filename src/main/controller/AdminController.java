@@ -37,7 +37,7 @@ public class AdminController {
         UserServiceImpl userService;
 
         @GetMapping("/add")
-        public String createBook (@RequestParam(name = "name") String name,
+        public ModelAndView createBook (@RequestParam(name = "name") String name,
                 @RequestParam(name = "author") String author,
                 @RequestParam(name = "coauthor") String coauthor,
         @RequestParam(name = "editionYear") int editionYear){
@@ -56,28 +56,29 @@ public class AdminController {
             bs.addBook(book);
             as.addAuthor(author1);
             as.addAuthor(author2);
-            return "/";
+            ModelAndView modelAndView = new ModelAndView("/");
+            return modelAndView;
         }
         @GetMapping("/add-book")
         public ModelAndView showAddBook(){
-            return new ModelAndView("admin/add-book");
+            return new ModelAndView("/admin/add-book.jsp");
         }
 
         @GetMapping("/records")
         public ModelAndView showAllRecords () {
-            return new ModelAndView("admin/records", "records", recordService.listRecords());
+            return new ModelAndView("/admin/records.jsp", "records", recordService.listRecords());
         }
 
         @GetMapping("/users-list")
         public ModelAndView showUsersAndDebtors () {
-            ModelAndView modelAndView = new ModelAndView("admin/users-list");
+            ModelAndView modelAndView = new ModelAndView("/admin/users-list.jsp");
             modelAndView.addObject("users", userService.listUsers());
             modelAndView.addObject("debtors", recordService.getDebtors(30));
             return modelAndView;
         }
         @GetMapping("/user-info")
     public ModelAndView showUserInfo(@RequestParam(name = "id")long id){
-            ModelAndView modelAndView = new ModelAndView("admin/user-info");
+            ModelAndView modelAndView = new ModelAndView("/admin/user-info.jsp");
             modelAndView.addObject("info",recordService.getRecordById(id));
             modelAndView.addObject("daysOfUsage",userService.usingDays(id));
             return modelAndView;

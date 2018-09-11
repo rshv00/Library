@@ -52,16 +52,16 @@ public class EntryController {
       authorities.setAuthority("ROLE_USER");
       user.setAuthority(authorities);
       userService.addUser(user);
-      return "WEB-INF/login";
+      return "WEB-INF/login.jsp";
     }
 
     @GetMapping("/showLoginPage")
     public String loginPage() {
-        return "WEB-INF/login";
+        return "WEB-INF/login.jsp";
     }
 
     @GetMapping("/access-denied")
     public String showAccessDenied() {
-        return "WEB-INF/access-denied";
+        return "WEB-INF/access-denied.jsp";
     }
 }
