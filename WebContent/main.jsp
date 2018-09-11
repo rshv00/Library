@@ -128,7 +128,6 @@
                 </security:authorize>
         </table>
     </div>
-</div>
 <footer>
     <p>2018</p>
 </footer>
