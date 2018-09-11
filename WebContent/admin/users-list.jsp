@@ -33,7 +33,7 @@
     <body>
         <div class="container_24">
             <header class="header" id="myHeader">
-                <h1 class="grid_7" id="logo"><a href="<c:url value="/main"/>">l-admin</a></h1>
+                <h1 class="grid_7" id="logo"><a href="<c:url value="/admin/main"/>">l-admin</a></h1>
                 <nav class="grid_17">
                     <ul>
                         <li><a href="/admin/records">Records</a></li>
