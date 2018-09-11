@@ -58,6 +58,10 @@ public class AdminController {
             as.addAuthor(author2);
             return "/main";
         }
+        @GetMapping("/add-book")
+        public ModelAndView showAddBook(){
+            return new ModelAndView("admin/add-book");
+        }
 
         @GetMapping("/records")
         public ModelAndView showAllRecords () {
@@ -69,6 +73,13 @@ public class AdminController {
             ModelAndView modelAndView = new ModelAndView("admin/users-list");
             modelAndView.addObject("users", userService.listUsers());
             modelAndView.addObject("debtors", recordService.getDebtors(30));
+            return modelAndView;
+        }
+        @GetMapping("/user-info")
+    public ModelAndView showUserInfo(@RequestParam(name = "id")long id){
+            ModelAndView modelAndView = new ModelAndView("admin/user-info");
+            modelAndView.addObject("info",recordService.getRecordById(id));
+            modelAndView.addObject("daysOfUsage",userService.usingDays(id));
             return modelAndView;
         }
     }

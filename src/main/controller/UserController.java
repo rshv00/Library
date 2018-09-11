@@ -73,7 +73,7 @@ public class UserController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         long id = Long.parseLong(currentPrincipalName);
-
+        userService.changePassword(id,pass);
         return new ModelAndView("/change-pass");
 
     }
