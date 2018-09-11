@@ -36,6 +36,13 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.12</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mindrot/jbcrypt -->
+        <dependency>
+            <groupId>org.mindrot</groupId>
+            <artifactId>jbcrypt</artifactId>
+            <version>0.3m</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.apache.tomcat.maven/tomcat7-maven-plugin -->
         <dependency>
             <groupId>org.apache.tomcat</groupId>

@@ -50,7 +50,9 @@
                     </div>
                     <form:form class="login100-form validate-form" action="${pageContext.request.contextPath}/authenticateTheUser" method="POST">
                         <%--<c:if test="${param.error !=null}">--%>
-                            <%--<i>Sorry! You entered invalid username/password</i>--%>
+                            <div th:if="${param.error}">
+                                Sorry! You entered invalid username/password
+                            </div>
                         <%--</c:if>--%>
                         <%--<c:if test="${param.logout !=null}">--%>
                             <%--<i>You have been logged out</i>--%>
