@@ -61,10 +61,10 @@
                     </tr>
                     <c:forEach var="book" items="${listOfPopular}">
                         <tr>
-                            <td><c:out value="${book.bookName}"/></td>
-                            <td><c:out value="${book.authorName}"/></td>
-                            <td><c:out value="${book.coauthorName}"/></td>
-                            <td><c:out value="${book.editionYear}"/></td>
+                            <td><c:out value="${book.getBookName()}"/></td>
+                            <td><c:out value="${book.author.getName()}"/></td>
+                            <td><c:out value="${book.author.getCoauthorName}"/></td>
+                            <td><c:out value="${book.bookInstance.getEditionYear()}"/></td>
                         </tr>
                     </c:forEach>
                 </table>

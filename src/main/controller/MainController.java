@@ -27,7 +27,7 @@ public class MainController {
 
     @GetMapping("/")
     public ModelAndView start(){
-        ModelAndView modelAndView = new ModelAndView("main");
+        ModelAndView modelAndView = new ModelAndView("/main.jsp");
         ArrayList<BookInstance> list = new ArrayList<BookInstance>();
         list.addAll(bookInstService.listBooks());
         ArrayList<Integer> listYears = new ArrayList<Integer>();

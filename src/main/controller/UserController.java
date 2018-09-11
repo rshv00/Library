@@ -31,7 +31,7 @@ public class UserController {
         Authentication loggedInUser = SecurityContextHolder.getContext().getAuthentication();
         String username = loggedInUser.getName();
         User user = userService.getUserByLogin(username);
-        ModelAndView modelAndView = new ModelAndView("user/me");
+        ModelAndView modelAndView = new ModelAndView("/user/me.jsp");
         modelAndView.addObject("myRecords", recordService.getActiveRecords(user.getId()));
        modelAndView.addObject("daysOfUsing", userService.usingDays(user.getId()));
        user = userService.getUserById(user.getId());
@@ -42,7 +42,7 @@ public class UserController {
     @GetMapping("/trends")
     public ModelAndView showTrends(@RequestParam("dropDown") String value) {
         int days = Integer.parseInt(value);
-        ModelAndView modelAndView = new ModelAndView("user/trends");
+        ModelAndView modelAndView = new ModelAndView("/user/trends.jsp");
         modelAndView.addObject("listOfPopular",bookService.getTopBooks(days));
         modelAndView.addObject("listOfUnpopular",bookService.getFlopBooks());
         modelAndView.addObject("numberDuringIndep",bookInstanceService.getCountInstancesAfter1991());
@@ -54,7 +54,7 @@ public class UserController {
         Authentication loggedInUser = SecurityContextHolder.getContext().getAuthentication();
         String username = loggedInUser.getName();
         User user = userService.getUserByLogin(username);
-        ModelAndView modelAndView = new ModelAndView("user/history");
+        ModelAndView modelAndView = new ModelAndView("/user/history.jsp");
         modelAndView.addObject("myRecords", recordService.getHistoryOfRecords(user.getId()));
         return modelAndView;
     }
@@ -75,6 +75,6 @@ public class UserController {
     }
     @GetMapping("/showTrends")
     public ModelAndView showTrendsPage(){
-        return new ModelAndView("user/trends");
+        return new ModelAndView("/user/trends.jsp");
     }
 }
