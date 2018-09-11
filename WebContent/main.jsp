@@ -70,49 +70,45 @@
 </security:authorize>
 <div class="main">
     <security:authorize access="hasRole('ADMIN')">
-    <p class="title">Available books</p>
+    <p class="title">Available instances</p>
     <input type="text" id="myInput" onkeyup="search()" placeholder="E.g Fairy Tales" onchange="showTable()"
-           title="Type field">
+           title="Search">
     <table id="myTable">
         <tr class="header">
-            <th>Book name</th>
+            <th>Id</th>
+            <th>Name</th>
             <th>Year</th>
-            <th>Availability</th>
             <th></th>
         </tr>
         <c:forEach var="bookInstance" items="${listBook}">
         <tr>
+            <td><c:out value="${bookInstance.id}"/></td>
             <td><c:out value="${bookInstance.book.name}"/></td>
             <td><c:out value="${bookInstance.editionYear}"/></td>
-            <td><c:out value="${bookInstance.available}"/></td>
                 <%--<td><c:out value="${bookInstance.bookInstances.toArray()}"/></td>--%>
             <td>
-                <a href="${pageContext.request.contextPath}/main.jsp?reserve=<c:out value='${book.id}'/>">Reserve</a>
+                <a href="${pageContext.request.contextPath}/main.jsp?edit=<c:out value='${book.id}'/>">Edit</a>
             </td>
         </tr>
         </c:forEach>
         </security:authorize>
         <security:authorize access="hasRole('USER')">
-        <p class="title">Available books</p>
+        <p class="title">Search books</p>
         <input type="text" id="myInput" onkeyup="search()" placeholder="E.g Fairy Tales" onchange="showTable()"
-               title="Type field">
-        <table id="myTable">
-            <tr class="header">
-                <th>Book id</th>
-                <th>Book name</th>
-                <th>Year</th>
-                <th>Availability</th>
+               title="Type field" style="margin-top: 130px;">
+        <table hidden="true" id="myTable" style="border-style: none; margin-top: 15px;">
+            <tr class="h_user">
+                <th></th>
+                <th></th>
                 <th></th>
             </tr>
             <c:forEach var="bookInstance" items="${listBook}">
                 <tr>
-                    <td><c:out value="${bookInstance.id}"/></td>
                     <td><c:out value="${bookInstance.book.name}"/></td>
                     <td><c:out value="${bookInstance.editionYear}"/></td>
-                    <td><c:out value="${bookInstance.available}"/></td>
                         <%--<td><c:out value="${book.editionYear}"/></td>--%>
                     <td>
-                        <a href="/edit?id=<c:out value='${book.id}' />">Edit</a>
+                        <a href="/take?id=<c:out value='${book.id}' />">Take</a>
                     </td>
                 </tr>
             </c:forEach>
