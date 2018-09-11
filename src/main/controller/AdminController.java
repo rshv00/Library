@@ -1,9 +1,6 @@
 package main.controller;
 
-import main.entity.Author;
-import main.entity.Book;
-import main.entity.BookInstance;
-import main.entity.Record;
+import main.entity.*;
 import main.service.AuthorService;
 import main.service.BookInstanceService;
 import main.service.BookService;
@@ -20,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.swing.text.View;
 import java.time.LocalDate;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin")

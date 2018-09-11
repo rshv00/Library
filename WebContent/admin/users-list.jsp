@@ -33,7 +33,7 @@
     <body>
         <div class="container_24">
             <header class="header" id="myHeader">
-                <h1 class="grid_7" id="logo"><a href="<c:url value="/main"/>">l-admin</a></h1>
+                <h1 class="grid_7" id="logo"><a href="<c:url value=""/>">l-admin</a></h1>
                 <nav class="grid_17">
                     <ul>
                         <li><a href="/admin/records">Records</a></li>
@@ -55,15 +55,13 @@
                         <th>Birth date</th>
                         <th>Registration date</th>
                     </tr>
-                    <c:forEach var="users" items="${listUsers}">
+                    <c:forEach var="users" items="${users}">
                         <tr>
-                            <td>
-                                <c:out value="${users.userId}"></c:out>
-                            </td>
-                            <td><c:out value="${users.userName}"></c:out></td>
-                            <td><c:out value="${users.userPhone}"></c:out></td>
-                            <td><c:out value="${users.registrationDate}"></c:out></td>
-                            <td><c:out value="${users.birthDate}"></c:out></td>
+                            <td><c:out value="${users.id}"></c:out></td>
+                            <td><c:out value="${users.name}"></c:out></td>
+                            <td><c:out value="${users.phone}"></c:out></td>
+                            <td><c:out value="${users.birth_date}"></c:out></td>
+                            <td><c:out value="${users.registration_date}"></c:out></td>
                         </tr> </c:forEach>
 
                 </table>
@@ -77,7 +75,7 @@
                         <th>Birth date</th>
                         <th>Registration date</th>
                     </tr>
-                    <c:forEach var="debtors" items="${listDebtors}">
+                    <c:forEach var="debtors" items="${debtors}">
                         <tr>
                             <td><c:out value="${debtors.user.userId}"></c:out></td>
                             <td><c:out value="${debtors.user.userName}"></c:out></td>
