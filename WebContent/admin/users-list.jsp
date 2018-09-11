@@ -36,7 +36,7 @@
                 <nav class="grid_17">
                     <ul>
                         <li><a href="/records">Records</a></li>
-                        <li><a href="/admin/add-book.jsp">Add book</a></li>
+                        <li><a href="/admin/add-book">Add book</a></li>
                         <li><a href="/users-list">Users</a></li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>

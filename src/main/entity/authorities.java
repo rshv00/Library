@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table
 public class authorities {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
     private String username;

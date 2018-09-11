@@ -52,7 +52,7 @@
         <nav class="grid_17">
             <ul>
                 <li><a href="/records">Records</a></li>
-                <li><a href="/admin/add-book.jsp">Add book</a></li>
+                <li><a href="/admin/add-book">Add book</a></li>
                 <li><a href="/users-list">Users</a></li>
                 <li><a><form:form action="${pageContext.request.contextPath}/logout" method="POST"><input type="submit" class="a" value="Logout"/></form:form></a></li>
             </ul>

@@ -36,10 +36,10 @@
                 <h1 class="grid_7" id="logo"><a href="<c:url value="/main"/>">library</a></h1>
                 <nav class="grid_17">
                     <ul>
-                        <li><a href="me.jsp">Me</a></li>
+                        <li><a href="/me">Me</a></li>
                         <li><a href="/user/history">History</a></li>
-                        <li><a href="trends.jsp">Trends</a></li>
-                        <li><a href="../WEB-INF/login.jsp">Logout</a></li>
+                        <li><a href="/trends">Trends</a></li>
+                        <li><a href="../WEB-INF/login">Logout</a></li>
                     </ul>
                 </nav>
             </header>

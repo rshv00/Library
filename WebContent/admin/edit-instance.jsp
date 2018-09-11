@@ -31,9 +31,9 @@
                 <nav class="grid_17">
                     <ul>
                         <li><a href="records.jsp">Records</a></li>
-                        <li><a href="add-book.jsp">Add book</a></li>
+                        <li><a href="add-book">Add book</a></li>
                         <li><a href="../admin/users-list">Users</a></li>
-                        <li><a href="../WEB-INF/login.jsp">Logout</a></li>
+                        <li><a href="../WEB-INF/login">Logout</a></li>
                     </ul>
                 </nav>
             </header>
