@@ -14,19 +14,19 @@ import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.Set;
 
-@Service
-public class UserDetailsServiceImpl implements UserDetailsService {
-
-    @Autowired
-    private UserService userService;
-
-    @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        User user = userService.getUserByCredentials("colibri","blaah");
-        Set<GrantedAuthority> roles = new HashSet();
-        roles.add(new SimpleGrantedAuthority(UserRole.ROLE_USER.name()));
-
-        UserDetails userDetails = new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPass(), roles);
-        return userDetails;
-    }
-}
+//@Service
+//public class UserDetailsServiceImpl implements UserDetailsService {
+//
+//    @Autowired
+//    private UserService userService;
+//
+//    @Override
+//    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+////        User user = userService.getUserByCredentials("colibri","blaah");
+//        Set<GrantedAuthority> roles = new HashSet();
+//        roles.add(new SimpleGrantedAuthority(UserRole.ROLE_USER.name()));
+//
+//        UserDetails userDetails = new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPass(), roles);
+//        return userDetails;
+//    }
+//}

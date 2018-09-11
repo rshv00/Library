@@ -20,8 +20,9 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Set<Record> records;
     private int role;
-    private String login;
-    private String pass;
+    private String username;
+    private String password;
+    private int enabled = 1 ;
 
     public User() {
     }
@@ -74,20 +75,20 @@ public class User {
         this.records = records;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUserName() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUserName(String login) {
+        this.username = login;
     }
 
     public String getPass() {
-        return pass;
+        return password;
     }
 
     public void setPass(String pass) {
-        this.pass = pass;
+        this.password = pass;
     }
 
     public UserRole getRole() {

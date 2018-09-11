@@ -35,7 +35,7 @@ public class EntryController {
                                  @RequestParam(name = "birthDate") String birthDate){
       User user = new User();
       user.setName(name);
-      user.setLogin(login);
+      user.setUserName(login);
       user.setPass(password);
       user.setPhone(phone);
       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
