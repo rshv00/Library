@@ -38,7 +38,7 @@
                         <li><a href="/user/me">Me</a></li>
                         <li><a href="/user/history">History</a></li>
                         <li><a href="/user/trends">Trends</a></li>
-                        <li><a><form:form action="${pageContext.request.contextPath}/logout" method="POST"><input type="submit" class="a" value="Logout"/></form:form></a></li>
+                        <li><a href="/logout">Logout</a></li>
                     </ul>
                 </nav>
             </header>

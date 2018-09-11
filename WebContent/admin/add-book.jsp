@@ -33,7 +33,7 @@
                         <li><a href="/admin/records">Records</a></li>
                         <li><a href="/admin/add-book">Add book</a></li>
                         <li><a href="/admin/users-list">Users</a></li>
-                        <li><a><form:form action="${pageContext.request.contextPath}/logout" method="POST"><input type="submit" class="a" value="Logout"/></form:form></a></li>
+                        <li><a href="/logout">Logout</a></li>
                     </ul>
                 </nav>
             </header>

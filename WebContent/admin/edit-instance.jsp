@@ -27,13 +27,13 @@
     <body>
         <div class="container_24">
             <header class="header" id="myHeader">
-                <h1 class="grid_7" id="logo"><a href="<c:url value="/main"/>">l-admin</a></h1>
+                <h1 class="grid_7" id="logo"><a href="<c:url value="/"/>">l-admin</a></h1>
                 <nav class="grid_17">
                     <ul>
                         <li><a href="records.jsp">Records</a></li>
                         <li><a href="add-book">Add book</a></li>
                         <li><a href="../admin/users-list">Users</a></li>
-                        <li><a href="../WEB-INF/login">Logout</a></li>
+                        <li><a href="/logout">Logout</a></li>
                     </ul>
                 </nav>
             </header>

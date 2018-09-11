@@ -21,7 +21,7 @@
     border-right-style: hidden;
 }
 .main .title{
-    margin-top: 40px;
+    margin-top: 55px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-size: 50px;   
@@ -60,7 +60,6 @@
 }
 
 #myInput {
-    background-image: url('../img/icons/searchicon.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
     width: 100%;
