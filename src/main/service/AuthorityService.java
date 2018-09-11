@@ -1,4 +1,7 @@
 package main.service;
 
-public class AuthorityService {
+import main.entity.Authority;
+
+public interface AuthorityService {
+    public void addAuthority(Authority authority);
 }

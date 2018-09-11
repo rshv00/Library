@@ -23,7 +23,9 @@ public class User {
     private String username;
     private String password;
     private int enabled = 1 ;
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "authority")
+    private Authority authority;
     public User() {
     }
 
@@ -111,5 +113,13 @@ public class User {
         } else if (userRole.equals(UserRole.ROLE_GUEST)) {
             this.role = 3;
         }
+    }
+
+    public Authority getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(Authority authority) {
+        this.authority = authority;
     }
 }

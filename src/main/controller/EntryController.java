@@ -1,12 +1,9 @@
 package main.controller;
 
-import main.entity.Author;
-import main.entity.Book;
-import main.entity.BookInstance;
-import main.entity.User;
+import main.entity.*;
 import main.entity.enums.UserRole;
+import main.service.AuthorityService;
 import main.service.UserService;
-import main.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +18,9 @@ public class EntryController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    AuthorityService authorityService;
 
     @RequestMapping("/login")
     public String onSign(){
@@ -42,8 +42,10 @@ public class EntryController {
       LocalDate localDate = LocalDate.parse(birthDate, formatter);
       user.setBirth_date(localDate);
       user.setRegistration_date(LocalDate.now());
-      user.setRole(UserRole.ROLE_USER);
-//      user.setId(50);
+      Authority authorities = new Authority();
+      authorities.setUsername(login);
+      authorities.setAuthority("ROLE_USER");
+      user.setAuthority(authorities);
       userService.addUser(user);
       return "WEB-INF/login";
     }

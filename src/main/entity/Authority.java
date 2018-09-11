@@ -3,12 +3,24 @@ package main.entity;
 import javax.persistence.*;
 
 @Entity
-@Table
-public class authorities {
+@Table( name = "authorities")
+public class Authority {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private long id;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @OneToOne(mappedBy = "authority")
+    @JoinColumn(name = "username", insertable=false, updatable=false)
+    private User user;
     private String username;
     private String authority;
 
@@ -35,6 +47,4 @@ public class authorities {
     public void setAuthority(String authority) {
         this.authority = authority;
     }
-
-
 }
