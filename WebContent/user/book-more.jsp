@@ -34,7 +34,7 @@
     <body>
         <div class="container_24">
             <header class="header" id="myHeader">
-                <h1 class="grid_7" id="logo"><a href="<c:url value="/main"/>">library</a></h1>
+                <h1 class="grid_7" id="logo"><a href="<c:url value=""/>">library</a></h1>
                 <nav class="grid_17">
                     <ul>
                         <li><a href="/user/me">Me</a></li>
