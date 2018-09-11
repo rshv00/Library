@@ -57,9 +57,11 @@ public class BookDaoImpl extends GenericDaoImpl<Book, Long, Integer>
     public List<Book> getFlopBooks() {
         return (List<Book>) sessionFactory
                 .getCurrentSession()
-                .createQuery("from Book b inner join BookInstance bi" +
-                        " inner join Record r where r.taken is not null group by r.taken order by count(r.taken) desc")
-                .setMaxResults(10)
+                .createSQLQuery("select books.name from(" +
+                        "(book_instances inner join records on records.instance_id = book_instances.id)" +
+                        "inner join books on book_instances.book_id=books.book_id)" +
+                        "group by taken order by " +
+                        "count(records.instance_id) asc limit 10;")
                 .list();
     }
 
@@ -116,7 +118,7 @@ public class BookDaoImpl extends GenericDaoImpl<Book, Long, Integer>
                         " on book_instances.id=records.instance_id) inner join users on " +
                         "users.user_id=records.user_id)inner join books on book_instances.book_id" +
                         "=books.book_id) where books.book_id = :bookId group by books.book_id;")
-                .setParameter("bookId",bookId)
+                .setParameter("bookId", bookId)
                 .list()
                 .get(0);
 

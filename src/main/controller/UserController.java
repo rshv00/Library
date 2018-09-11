@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
@@ -31,13 +28,13 @@ public class UserController {
 
     @GetMapping("/me")
     public ModelAndView infoAboutMe() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-        long id = Long.parseLong(currentPrincipalName);
+        Authentication loggedInUser = SecurityContextHolder.getContext().getAuthentication();
+        String username = loggedInUser.getName();
+        User user = userService.getUserByLogin(username);
         ModelAndView modelAndView = new ModelAndView("user/me");
-        modelAndView.addObject("myRecords", recordService.getActiveRecords(id));
-        modelAndView.addObject("daysOfUsing", userService.usingDays(id));
-        User user = userService.getUserById(id);
+        modelAndView.addObject("myRecords", recordService.getActiveRecords(user.getId()));
+       modelAndView.addObject("daysOfUsing", userService.usingDays(user.getId()));
+       user = userService.getUserById(user.getId());
         modelAndView.addObject("userName", user.getName());
         return modelAndView;
     }
@@ -54,11 +51,11 @@ public class UserController {
 
     @GetMapping("/history")
     public ModelAndView showMyHistory() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-        long id = Long.parseLong(currentPrincipalName);
+        Authentication loggedInUser = SecurityContextHolder.getContext().getAuthentication();
+        String username = loggedInUser.getName();
+        User user = userService.getUserByLogin(username);
         ModelAndView modelAndView = new ModelAndView("user/history");
-        modelAndView.addObject("myRecords", recordService.getHistoryOfRecords(id));
+        modelAndView.addObject("myRecords", recordService.getHistoryOfRecords(user.getId()));
         return modelAndView;
     }
 
@@ -68,13 +65,16 @@ public class UserController {
         return new ModelAndView();
     }
 
-    @PostMapping("/change-pass")
-    public ModelAndView changePass(@RequestParam("password") String pass) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-        long id = Long.parseLong(currentPrincipalName);
-        userService.changePassword(id,pass);
-        return new ModelAndView("/change-pass");
-
+    @GetMapping("/change-pass")
+    public ModelAndView changePass(@RequestParam(name = "password") String pass) {
+        Authentication loggedInUser = SecurityContextHolder.getContext().getAuthentication();
+        String username = loggedInUser.getName();
+        User user = userService.getUserByLogin(username);
+        userService.changePassword(user.getId(),pass);
+        return new ModelAndView("/");
+    }
+    @GetMapping("/showTrends")
+    public ModelAndView showTrendsPage(){
+        return new ModelAndView("user/trends");
     }
 }

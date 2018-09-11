@@ -38,9 +38,9 @@
             <ul>
                 <%--<c:url value="/user/me.jsp" var="inputURL" >--%>
                 <%--</c:url>--%>
-                <li><a href="/me">Me</a></li>
-                <li><a href="/history">History</a></li>
-                <li><a href="/trends">Trends</a></li>
+                <li><a href="/user/me">Me</a></li>
+                <li><a href="/user/history">History</a></li>
+                <li><a href="/user/trends">Trends</a></li>
                 <li><form:form action="${pageContext.request.contextPath}/logout" method="POST"><input type="submit" class="a" value="Logout"/></form:form></a></li>
             </ul>
         </nav>
