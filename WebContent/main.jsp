@@ -41,7 +41,7 @@
                 <li><a href="/me">Me</a></li>
                 <li><a href="/history">History</a></li>
                 <li><a href="/trends">Trends</a></li>
-                <li><form:form action="${pageContext.request.contextPath}/logout" method="POST"><input type="submit" class="a" value="Logout"/></form:form></a></li>
+                <li><form:form href="${pageContext.request.contextPath}/logout" method="POST" cssStyle="border: hidden"><input type="submit" class="a" value="Logout"/></form:form></a></li>
             </ul>
         </nav>
     </header>
@@ -54,7 +54,7 @@
                 <li><a href="/admin/records">Records</a></li>
                 <li><a href="/admin/add-book">Add book</a></li>
                 <li><a href="/admin/users-list">Users</a></li>
-                <li><a><form:form action="${pageContext.request.contextPath}/logout" method="POST"><input type="submit" class="a" value="Logout"/></form:form></a></li>
+                <li><a href="<c:url value="${pageContext.request.contextPath}/logout"/>" >Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -65,7 +65,7 @@
         <nav class="grid_17">
             <ul>
                 <li><a href="/login">Login</a></li>
-                <li><form:form action="${pageContext.request.contextPath}/logout" method="POST" cssClass="a"><input type="submit" class="a" value="Logout"/></form:form></li>
+                <li><form:form action="${pageContext.request.contextPath}/logout" method="POST" cssClass="a" ><input type="submit" class="a" value="Logout"/></form:form></li>
             </ul>
         </nav>
     </header>
