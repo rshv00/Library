@@ -49,11 +49,12 @@
                         <th></th>
                     </tr>
                     <tr>
-                        <c:forEach var="records" items="${myRecords}">
-                    <tr>
-                        <td><c:out value="${records.book.getName()}"></c:out></td>
-                        <td><c:out value="${records.author.getName()}"></c:out></td>
-                    </tr> </c:forEach>
+                        <c:set var="map" value="${myRecords}" />
+                        <c:forEach var="ids" items="${map}">
+                            <td><c:out value="${ids.key.instance.book.name}"></c:out></td>
+                            <td><c:out value="${ids.key.instance.book.authors}"></c:out></td>
+                            <td><c:out value="${ids.value}"></c:out></td>
+                    </c:forEach>
                     </tr> 
                 </table>
                 <p class="t2">Please, return books before 30 days. After one month user counts as a debtor.</p>

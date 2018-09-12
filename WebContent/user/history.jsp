@@ -52,7 +52,7 @@
                    <c:forEach var="record" items="${myRecords}">
                        <tr>
                            <td><c:out value="${record.id}"></c:out></td>
-                           <td><c:out value="${record.bookInstance.book.getName()}"></c:out></td>
+                           <td><c:out value="${record.instance.book.name}"></c:out></td>
                            <td><c:out value="${record.taken}"></c:out></td>
                            <td><c:out value="${record.returned}"></c:out></td>
                        </tr>

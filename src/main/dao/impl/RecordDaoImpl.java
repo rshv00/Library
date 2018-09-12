@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +26,7 @@ public class RecordDaoImpl extends GenericDaoImpl<Record, Long, ObjectUtils.Null
 
     @Override
     public Map<Record, Integer> getActiveRecords(Long userId) {
-        Map<Record, Integer> map = null;
+        Map<Record, Integer> map = new HashMap<>();
         LocalDate now = LocalDate.now();
 
         List<Record> allRecords = getAllElements();

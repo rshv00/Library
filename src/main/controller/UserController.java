@@ -40,8 +40,8 @@ public class UserController {
     }
 
     @GetMapping("/trends")
-    public ModelAndView showTrends(@RequestParam("dropDown") String value) {
-        int days = Integer.parseInt(value);
+    public ModelAndView showTrends() {
+        int days = 1000;
         ModelAndView modelAndView = new ModelAndView("/user/trends.jsp");
         modelAndView.addObject("listOfPopular",bookService.getTopBooks(days));
         modelAndView.addObject("listOfUnpopular",bookService.getFlopBooks());

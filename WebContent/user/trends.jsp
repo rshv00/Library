@@ -39,32 +39,17 @@
                 </nav>
             </header>
             <div class="main">
-                <p class="title">Top 10 most popular books by all time</p>
-                <form action="trends" id="dropdown" name="dropDown" method="get">
-                    <label class="label_stats" for="drdown">Change:</label>
-                    <select name = "dropDown" class="drdown" id="drdown"
-                            onchange="document.location=this.options[this.selectedIndex].value">
-                        <option value="trends?dropDown=0">All time</option>
-                        <option value="trends?dropDown=30">30 days</option>
-                        <option value="trends?dropDown=183">6 months</option>
-                        <option value="trends?dropDown=365">12 months</option>
-                    </select>
-                </form>
+                <p class="title">Top 10 most popular books</p>
 
                 <table id="myTable" class="stats">
                     <tr class="header">
-                        <th></th>
                         <th>Book</th>
-                        <th>Author</th>
-                        <th>Coauthor</th>
-                        <th>Edition Year</th>
+                        <th>Authors</th>
                     </tr>
                     <c:forEach var="book" items="${listOfPopular}">
                         <tr>
-                            <td><c:out value="${book.getBookName()}"/></td>
-                            <td><c:out value="${book.author.getName()}"/></td>
-                            <td><c:out value="${book.author.getCoauthorName}"/></td>
-                            <td><c:out value="${book.bookInstance.getEditionYear()}"/></td>
+                            <td><c:out value="${book.name}"></c:out></td>
+                            <td><c:out value="${book.authors}"></c:out></td>
                         </tr>
                     </c:forEach>
                 </table>
@@ -75,10 +60,8 @@
 
                     <c:forEach var="bookUn" items="${listOfUnpopular}">
                         <tr>
-                            <td><c:out value="${bookUn.bookName}"/></td>
-                            <td><c:out value="${bookUn.authorName}"/></td>
-                            <td><c:out value="${bookUn.coauthorName}"/></td>
-                            <td><c:out value="${bookUn.editionYear}"/></td>
+                            <td><c:out value="${bookUn.name}"/></td>
+                            <td><c:out value="${bookUn.authors}"/></td>
                         </tr>
                     </c:forEach>
                     </tr>
