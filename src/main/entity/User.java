@@ -11,7 +11,7 @@ import java.util.Set;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Column(name = "user_id", updatable = false, nullable = false)
     private long id;
     private String name;
     private String phone;
@@ -19,7 +19,6 @@ public class User {
     private LocalDate registration_date;
     @OneToMany(mappedBy = "user")
     private Set<Record> records;
-    private int role;
     private String username;
     private String password;
     private int enabled = 1 ;
@@ -91,28 +90,6 @@ public class User {
 
     public void setPass(String pass) {
         this.password = pass;
-    }
-
-    public UserRole getRole() {
-        if (role == 1) {
-            return UserRole.ROLE_ADMIN;
-        } else if (role == 2) {
-            return UserRole.ROLE_USER;
-        } else if (role == 3){
-           return UserRole.ROLE_GUEST;
-        }else{
-            return null;
-        }
-    }
-
-    public void setRole(UserRole userRole) {
-        if (userRole.equals(UserRole.ROLE_ADMIN)) {
-            this.role = 1;
-        } else if (userRole.equals(UserRole.ROLE_USER)) {
-            this.role = 2;
-        } else if (userRole.equals(UserRole.ROLE_GUEST)) {
-            this.role = 3;
-        }
     }
 
     public Authority getAuthority() {

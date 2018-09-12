@@ -27,13 +27,13 @@
     <body>
         <div class="container_24">
             <header class="header" id="myHeader">
-                <h1 class="grid_7" id="logo"><a href="/main">l-admin</a></h1>
+                <h1 class="grid_7" id="logo"><a href="<c:url value="/"/>">l-admin</a></h1>
                 <nav class="grid_17">
                     <ul>
                         <li><a href="/admin/records">Records</a></li>
                         <li><a href="/admin/add-book">Add book</a></li>
                         <li><a href="/admin/users-list">Users</a></li>
-                        <li><a><form:form action="${pageContext.request.contextPath}/logout" method="POST"><input type="submit" class="a" value="Logout"/></form:form></a></li>
+                        <li><a href="/logout">Logout</a></li>
                     </ul>
                 </nav>
             </header>
@@ -51,9 +51,9 @@
 
                         <c:forEach var="records" items="${records}">
                     <tr>
-                        <td><c:out value="${records.instanceId}"></c:out></td>
-                        <td><c:out value="${records.user.getUserId()}"></c:out></td>
-                        <td><c:out value="${records.book.getBookName()}"></c:out></td>
+                        <td><c:out value="${records.instance.id}"></c:out></td>
+                        <td><c:out value="${records.user.id}"></c:out></td>
+                        <td><c:out value="${records.instance.book.name}"></c:out></td>
                         <td><c:out value="${records.bookTaken}"></c:out></td>
                         <td><c:out value="${records.bookReturned}"></c:out></td>
                     </tr> </c:forEach>

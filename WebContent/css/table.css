@@ -3,6 +3,7 @@
 }
 .main{
     margin: 0 60px;
+    min-height: calc(100vh - 40px);
 }
 
 .lable_stats, select {
@@ -19,15 +20,15 @@
     border-left-style: hidden;
     border-right-style: hidden;
 }
-.main .title{
-    margin-top: 40px;
+.main .title, #users_t{
+    margin-top: 55px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-size: 50px;   
 }
 
 .main .title2{
-    margin-top: 40px;
+    margin-top: 55px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     color: #000000;
@@ -36,7 +37,7 @@
 
 .t2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 25px; 
+    font-size: 25px;
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
@@ -59,7 +60,6 @@
 }
 
 #myInput {
-    background-image: url('../img/icons/searchicon.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
     width: 100%;
@@ -90,12 +90,18 @@
 #myTable tr.header, #myTable tr:hover {
     background-color: #f1f1f1;
 }
+.h_user{
+    visibility: hidden;
+}
 
 #myInput2{
     border-radius: 10px;
 }
-
+tr{
+    border-radius: 10px;
+}
 table td,th,tr {
+
     font-weight: normal;
 }
 #tip {

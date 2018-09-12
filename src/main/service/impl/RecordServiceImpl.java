@@ -1,12 +1,16 @@
 package main.service.impl;
 
+import main.dao.generic.BookInstanceDao;
 import main.dao.generic.RecordDao;
+import main.dao.generic.UserDao;
+import main.entity.BookInstance;
 import main.entity.Record;
 import main.entity.User;
 import main.service.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +19,10 @@ public class RecordServiceImpl implements RecordService {
 
     @Autowired
     RecordDao dao;
+    @Autowired
+    UserDao userDao;
+    @Autowired
+    BookInstanceDao bookInstanceDao;
 
     @Override
     public void addRecord(Record record) {
@@ -59,5 +67,30 @@ public class RecordServiceImpl implements RecordService {
     @Override
     public List<User> getDebtors(int periodDays) {
         return dao.getDebtors(periodDays);
+    }
+
+    @Override
+    public void takeBook(long userId, long instanceId) {
+        LocalDate dateTaken = LocalDate.now();
+        User user = userDao.getElementById(userId);
+        BookInstance bookInstance = bookInstanceDao.getElementById(instanceId);
+        bookInstance.setAvailable(false);
+        Record record = new Record();
+        bookInstanceDao.updateElement(bookInstance);
+        record.setInstance(bookInstance);
+        record.setTaken(dateTaken);
+        record.setUser(user);
+        updateRecord(record);
+    }
+
+    @Override
+    public void returnBook(long userId, long instanceId, long recordId) {
+        LocalDate dateReturned = LocalDate.now();
+        BookInstance bookInstance = bookInstanceDao.getElementById(instanceId);
+        bookInstance.setAvailable(false);
+        bookInstanceDao.updateElement(bookInstance);
+        Record record = getRecordById(recordId);
+        record.setReturned(dateReturned);
+        updateRecord(record);
     }
 }
